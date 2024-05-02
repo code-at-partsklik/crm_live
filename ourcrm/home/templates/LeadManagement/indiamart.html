@@ -29,6 +29,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
@@ -41,13 +45,36 @@
         <main class="content">
           <div class="container-fluid p-0">
             <h1 class="h3 mb-3"><strong>IndiaMart</strong> Leads</h1>
-            <a href="/refresh-leads" class="btn btn-primary">Refresh</a>
+
             <div class="card">
               <div class="card-body">
-                <input placeholder="Search..." class="form-control w-50" />
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group flex-nowrap">
+                      <span class="input-group-text" id="addon-wrapping"
+                        ><i class="fa fa-search" aria-hidden="true"></i
+                      ></span>
+
+                      <!-- Input search field start -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search..."
+                        aria-describedby="addon-wrapping"
+                      />
+                      <!-- Input search field end -->
+                    </div>
+                  </div>
+                  <div class="col-md-6" style="text-align: right">
+                    <a href="/refresh-leads" class="btn btn-success"
+                      ><i class="fa fa-refresh" aria-hidden="true"></i>
+                      Reload</a
+                    >
+                  </div>
+                </div>
               </div>
             </div>
-            <table class="table my-1">
+            <table class="table border" style="font-size: 13px">
               <thead class="table-primary">
                 <tr>
                   <td>Lead Name</td>
@@ -71,7 +98,6 @@
                   <td>{{lead.product}}</td>
                   <td>{{lead.message}}</td>
                   <td>{{lead.enquery_time}}</td>
-                
                 </tr>
                 {% endfor %}
               </tbody>
