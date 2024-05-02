@@ -249,4 +249,8 @@ def addproduct_view(request):
 def detailproduct_view(request):
     return render(request,'Products/productdetails.html')
 
+@login_required(login_url='/login')
+def importproduct_view(request):
+    return render(request,'Products/importproduct.html')
+
 # --------------------------------Master Products End --------------------------
