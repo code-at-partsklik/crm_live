@@ -245,4 +245,8 @@ def addproduct_view(request):
     all_type=productType.objects.all()
     return render(request,'Products/addproduct.html',{"all_brands":all_brands,"all_type":all_type})
 
+@login_required(login_url='/login')
+def detailproduct_view(request):
+    return render(request,'Products/productdetails.html')
+
 # --------------------------------Master Products End --------------------------
