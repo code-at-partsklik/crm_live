@@ -7,15 +7,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta
-      name="description"
-      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
-    />
-    <meta name="author" content="AdminKit" />
-    <meta
-      name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
-    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
@@ -28,6 +22,11 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
 
@@ -44,7 +43,31 @@
 
             <div class="card">
               <div class="card-body">
-                <input placeholder="Search..." class="form-control w-50" />
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group flex-nowrap">
+                      <span class="input-group-text" id="addon-wrapping"
+                        ><i class="fa fa-search" aria-hidden="true"></i
+                      ></span>
+
+                      <!-- Input search field start -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search..."
+                        aria-describedby="addon-wrapping"
+                      />
+                      <!-- Input search field end -->
+                    </div>
+                  </div>
+                  <div class="col-md-6" style="text-align: right">
+                    <button class="btn btn-primary">Add product</button>
+
+                    <button class="btn btn-secondary">Import product</button>
+
+                    <button class="btn btn-success">Export product</button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -66,7 +89,7 @@
                   <td>Action</td>
                 </tr>
               </thead>
-              <tbody>
+              <tbody style="background-color: white">
                 <tr>
                   <td>#123456</td>
                   <td>TURBOCHARGER XUV-300 TEL</td>
@@ -80,11 +103,20 @@
                   </td>
                   <td>₹50,000</td>
                   <td>₹51,000</td>
-                  <td style="text-align: center">5</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: center"><b>6</b></td>
+                  <td>
+                    L: <b>2cm</b><br />
+                    B: <b>4cm</b><br />
+                    W: <b>5cm</b>
+                  </td>
+                  <td>25kg</td>
+                  <td>
+                    C: <b>Silver</b><br />
+                    M: <b>Metal</b>
+                  </td>
+                  <td style="text-align: center; cursor: pointer">
+                    <i style="color: green" class="fa fa-external-link"></i>
+                  </td>
                 </tr>
               </tbody>
             </table>
