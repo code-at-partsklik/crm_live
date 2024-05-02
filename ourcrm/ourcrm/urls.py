@@ -14,4 +14,5 @@ urlpatterns = [
     path('my-profile/',profile_view),
     path('refresh-leads/',refreshleads_view),
     path('update-data/',update_data),
+    path('add-product/',addproduct_view),
 ]
