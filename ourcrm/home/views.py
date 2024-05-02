@@ -156,13 +156,13 @@ def refreshleads_view(request):
     if im_response.status_code==200:
         api_data=im_response.json()
         print(api_data,' was api data')
-        response=api_data
+        response=api_data.RESPONSE
         print(len(response),'was lenght of response')
         if len(response)>0:
             try:
 
                 for i in response:
-                    address=f'{i["SENDER_ADDRESS"]} {i["SENDER_CITY"]} {i["SENDER_STATE"]} {i["SENDER_PINCODE"]}'
+                    address=f'{i["SENDER_ADDRESS"]} , {i["SENDER_CITY"]} , {i["SENDER_STATE"]} , {i["SENDER_PINCODE"]}'
                     data=indiamartLead(query_id=i["UNIQUE_QUERY_ID"],lead_name=i["SENDER_NAME"],contact=i["SENDER_MOBILE"],email=i["SENDER_EMAIL"],subject=i["SUBJECT"],address=address,product=i["QUERY_PRODUCT_NAME"],message=i["QUERY_MESSAGE"],enquery_time=i["QUERY_TIME"],query_type=i["QUERY_TYPE"])
                     data.save()
                 messages.success(request,'Refreshed ')
