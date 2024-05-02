@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      .input_label {
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Import</strong> Product</h1>
+
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-primary">Import Products</button>
+                <button class="btn btn-danger">Update Stock</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 style="text-align: right">
+                  <button class="btn btn-warning">Skip</button>
+                  <button class="btn btn-danger">Overwrite</button>
+                </h5>
+
+                <table class="table border" style="font-size: 13px">
+                  <thead class="table-primary">
+                    <tr>
+                      <td>SL No</td>
+                      <td>Product SKU</td>
+                      <td>Product Name</td>
+                      <td>Product Type</td>
+                      <td>Product Brand</td>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>#PRTK0001</td>
+                      <td>TURBOCHARGER XUV-300 TEL</td>
+                      <td>Turbocharger</td>
+                      <td>TEL</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>
