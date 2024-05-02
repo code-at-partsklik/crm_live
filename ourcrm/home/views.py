@@ -174,7 +174,7 @@ def refreshleads_view(request):
                 messages.error(request,'Something Wrong While Saving')
                 return redirect('/indiamart-leads')
         else:
-            messages.error(request,'No enquiery at the moment')
+            messages.error(request,'No enquiry at the moment')
             return redirect('/indiamart-leads')
     else:
         messages.error(request,'Something Went Wrong in api')
