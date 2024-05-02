@@ -51,117 +51,119 @@
             <h1 class="h3 mb-3"><strong>Add</strong> Product</h1>
 
             <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <label class="input_label">Product Details</label>
-                    <input placeholder="Product SKU" class="form-control" />
-                    <input
-                      placeholder="Product Name"
-                      class="form-control my-2"
-                    />
-                    <input
-                      placeholder="Product Brand"
-                      class="form-control my-2"
-                    />
-                    <select class="form-control my-2">
-                      <option>--Select Brand--</option>
-                    </select>
-
-                    <select class="form-control my-2">
-                      <option>--Select Type--</option>
-                    </select>
-
-                    <input
-                      placeholder="OEM Number "
-                      class="form-control my-2"
-                    />
-                    <input
-                      placeholder="Part Number"
-                      class="form-control my-2"
-                    />
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">₹</span>
+              <form method="POST">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="input_label">Product Details</label>
+                      <input placeholder="Product SKU" class="form-control" />
                       <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Product MRP"
+                        placeholder="Product Name"
+                        class="form-control my-2"
                       />
-                      <span class="input-group-text">.00</span>
+                      <input
+                        placeholder="Product Brand"
+                        class="form-control my-2"
+                      />
+                      <select class="form-control my-2">
+                        <option>--Select Brand--</option>
+                      </select>
+
+                      <select class="form-control my-2">
+                        <option>--Select Type--</option>
+                      </select>
+
+                      <input
+                        placeholder="OEM Number "
+                        class="form-control my-2"
+                      />
+                      <input
+                        placeholder="Part Number"
+                        class="form-control my-2"
+                      />
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product MRP"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product Price"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+
+                      <textarea
+                        placeholder="Product Description"
+                        class="form-control"
+                      ></textarea>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="input_label">Product Dimensions</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Length"
+                        />
+                        <span class="input-group-text" id="basic-addon2">cm</span>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Breadth"
+                        />
+                        <span class="input-group-text" id="basic-addon2">cm</span>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Height"
+                        />
+                        <span class="input-group-text" id="basic-addon2">cm</span>
+                      </div>
+
+                      <label class="input_label">Product Weight</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Weight"
+                        />
+                        <span class="input-group-text" id="basic-addon2">kg</span>
+                      </div>
                     </div>
 
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">₹</span>
+                    <div class="col-md-3">
                       <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Product Price"
+                        placeholder="Inventory Stock"
+                        class="form-control my-2"
                       />
-                      <span class="input-group-text">.00</span>
-                    </div>
-
-                    <textarea
-                      placeholder="Product Description"
-                      class="form-control"
-                    ></textarea>
-                  </div>
-                  <div class="col-md-3">
-                    <label class="input_label">Product Dimensions</label>
-                    <div class="input-group mb-3">
                       <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Length"
+                        placeholder="Product Color"
+                        class="form-control my-2"
                       />
-                      <span class="input-group-text" id="basic-addon2">cm</span>
-                    </div>
-
-                    <div class="input-group mb-3">
                       <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Breadth"
+                        placeholder="Product Material"
+                        class="form-control my-2"
                       />
-                      <span class="input-group-text" id="basic-addon2">cm</span>
                     </div>
-
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Height"
-                      />
-                      <span class="input-group-text" id="basic-addon2">cm</span>
-                    </div>
-
-                    <label class="input_label">Product Weight</label>
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Weight"
-                      />
-                      <span class="input-group-text" id="basic-addon2">kg</span>
-                    </div>
-                  </div>
-
-                  <div class="col-md-3">
-                    <input
-                      placeholder="Inventory Stock"
-                      class="form-control my-2"
-                    />
-                    <input
-                      placeholder="Product Color"
-                      class="form-control my-2"
-                    />
-                    <input
-                      placeholder="Product Material"
-                      class="form-control my-2"
-                    />
                   </div>
                 </div>
-              </div>
-              <button class="btn btn-primary">Add Product</button>
+                <button class="btn btn-primary">Add Product</button>
+              </form>
             </div>
           </div>
         </main>
