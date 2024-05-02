@@ -15,4 +15,5 @@ urlpatterns = [
     path('refresh-leads/',refreshleads_view),
     path('update-data/',update_data),
     path('add-product/',addproduct_view),
+    path('detail-product/',detailproduct_view),
 ]

@@ -398,4 +398,8 @@ def masterproduct_view(request):
 def addproduct_view(request):
     return render(request,'Products/addproduct.html')
 
+@login_required(login_url='/login')
+def detailproduct_view(request):
+    return render(request,'Products/productdetails.html')
+
 # --------------------------------Master Products End --------------------------
