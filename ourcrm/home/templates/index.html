@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="/static/css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="container my-5">
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"
+                  ><i class="fa fa-search" aria-hidden="true"></i
+                ></span>
+
+                <!-- Input search field start -->
+                <input
+                  type="text"
+                  class="form-control"
+                  style="height: 5vh"
+                  placeholder="Search..."
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                />
+                <!-- Input search field end -->
+              </div>
+
+              <i style="color: rgb(190, 190, 190)"> Search Results... </i>
+
+              <!-- Master Products suggestion box start -->
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <h5 style="font-weight: 700">
+                        <i style="color: grey">#PRTK0001</i>
+                        <i
+                          class="fa fa-angle-double-right"
+                          aria-hidden="true"
+                        ></i>
+                        TURBOCHARGER XUV-300 TEL
+                      </h5>
+                      <p>Turbocharger</p>
+                      <h5 style="margin-top: -8px">
+                        Qty: <b>5</b> | Price: <b>₹2500.00</b>
+                      </h5>
+                    </div>
+                    <div class="col-md-3"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Master Products suggestion box end -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

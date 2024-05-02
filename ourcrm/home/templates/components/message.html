@@ -1,0 +1,66 @@
+<style>
+    .swal2-title{
+      color: black !important;
+    }
+  </style>
+  
+  
+  {% if messages %}  
+          <ul class="messages">
+              {% for message in messages %}
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              {% if message.tags == 'success' %}
+              <script>
+                  function popup(){
+                      console.log("call")
+                      const Toast = Swal.mixin({
+                          toast: true,
+                          position: "top-end",
+                          showConfirmButton: false,
+                          timer: 3000,
+                          timerProgressBar: true,
+                          didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                          }
+                        });
+                        Toast.fire({
+                          //error
+                          icon: "success",
+                          title: "{{ message }}"
+                      });
+                  }
+  
+                  popup();
+              </script>
+              {% elif message.tags == 'error' %}
+              <script>
+                  function popup(){
+                      console.log("call")
+                      const Toast = Swal.mixin({
+                          toast: true,
+                          position: "top-end",
+                          showConfirmButton: false,
+                          timer: 3000,
+                          timerProgressBar: true,
+                          didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                          }
+                        });
+                        Toast.fire({
+                          //error
+                          icon: "error",
+                          title: "{{ message }}"
+                      });
+                  }
+  
+                  popup();
+              </script>
+  
+              {% endif %}
+  
+              {% endfor %}
+          </ul>
+        
+      {% endif %} 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>IndiaMart</strong> Leads</h1>
+            <a href="/refresh-leads" class="btn btn-primary">Refresh</a>
+            <div class="card">
+              <div class="card-body">
+                <input placeholder="Search..." class="form-control w-50" />
+              </div>
+            </div>
+            <table class="table my-1">
+              <thead class="table-primary">
+                <tr>
+                  <td>Lead Name</td>
+                  <td>Contact</td>
+                  <td>Email</td>
+                  <td>Subject</td>
+                  <td>Address</td>
+                  <td>Product</td>
+                  <td>Message</td>
+                  <td>Enquiry Time</td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for lead in all_leads %}
+                <tr>
+                  <td>{{lead.lead_name}}</td>
+                  <td>{{lead.contact}}</td>
+                  <td>{{lead.email}}</td>
+                  <td>{{lead.subject}}</td>
+                  <td>{{lead.address}}</td>
+                  <td>{{lead.product}}</td>
+                  <td>{{lead.message}}</td>
+                  <td>{{lead.enquery_time}}</td>
+                
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>

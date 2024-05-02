@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <main class="content">
+          {% include "components/message.html" %}
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>User</strong> Management</h1>
+
+            <div class="row">
+              <div class="col-md-5">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Add New User</h5>
+                  </div>
+                  <form method="post" action="/add-user/">
+                    {% csrf_token %}
+                    <div class="card-body">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                        name="user-name"
+                        value="{{ request.session.form_data.name }}"
+                        required
+                      />
+
+                      <input type="email" class="form-control my-2" placeholder="Email" name="user-email" value="{{ request.session.form_data.email }}" required />
+                      <select
+                        class="form-control my-2"
+                        placeholder="Role"
+                        name="user-role"
+                      >
+                        <option>-Select Role-</option>
+                        {% for role in roles %}
+                        <option value="{{role}}">{{role}}</option>
+                        {% endfor %}
+                      </select>
+
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Password"
+                        name="user-password"
+                        required
+                      />
+
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Confirm Password"
+                        name="confirm-password"
+                        required
+                      />
+
+                      <button type="submit" class="btn btn-primary">
+                        Add User
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Users</h5>
+                  </div>
+                  <div class="card-body">
+                    <table class="table">
+                      <thead class="table-primary">
+                        <tr>
+                          {% comment %}
+                          <td>Sl No</td>
+                          {% endcomment %}
+                          <td>Name</td>
+                          <td>Email</td>
+                          <td>Role</td>
+
+                          <td style="text-align: center">Actions</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for usr in all_users %}
+                        <tr>
+                          {% comment %}
+                          <td>1</td>
+                          {% endcomment %}
+                          <td>{{usr.first_name}}</td>
+                          <td>{{usr.email}}</td>
+                          <td>{{usr.user_role}}</td>
+
+                          <td style="text-align: center">
+                            <i
+                              class="fa fa-pencil-square-o"
+                              aria-hidden="true"
+                              style="cursor: pointer"
+                            ></i>
+
+                            <i
+                              class="fa fa-trash text-danger"
+                              style="
+                                margin-left: 10px;
+                                cursor: pointer;
+                                font-size: 16px;
+                              "
+                              aria-hidden="true"
+                            ></i>
+                          </td>
+                        </tr>
+
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>
