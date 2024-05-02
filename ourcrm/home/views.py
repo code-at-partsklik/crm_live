@@ -163,7 +163,9 @@ def refreshleads_view(request):
 
                 for i in response:
                     address=f'{i["SENDER_ADDRESS"]} , {i["SENDER_CITY"]} , {i["SENDER_STATE"]} , {i["SENDER_PINCODE"]}'
-                    data=indiamartLead(query_id=i["UNIQUE_QUERY_ID"],lead_name=i["SENDER_NAME"],contact=i["SENDER_MOBILE"],email=i["SENDER_EMAIL"],subject=i["SUBJECT"],address=address,product=i["QUERY_PRODUCT_NAME"],message=i["QUERY_MESSAGE"],enquery_time=i["QUERY_TIME"],query_type=i["QUERY_TYPE"])
+                    msg=i["QUERY_MESSAGE"]
+                    msg=msg.replace("<br>"," ")
+                    data=indiamartLead(query_id=i["UNIQUE_QUERY_ID"],lead_name=i["SENDER_NAME"],contact=i["SENDER_MOBILE"],email=i["SENDER_EMAIL"],subject=i["SUBJECT"],address=address,product=i["QUERY_PRODUCT_NAME"],message=msg,enquery_time=i["QUERY_TIME"],query_type=i["QUERY_TYPE"])
                     data.save()
                 messages.success(request,'Refreshed ')
                 return redirect('/indiamart-leads')
