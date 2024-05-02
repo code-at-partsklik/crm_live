@@ -31,6 +31,7 @@ class indiamartLead(models.Model):
     message=models.CharField(max_length=300,null=True,blank=True)
     enquery_time=models.CharField(max_length=200,null=True,blank=True)
     query_type=models.CharField(max_length=200,null=True,blank=True)
+    company=models.CharField(max_length=200,null=True,blank=True)
 
     def __str__(self) -> str:
         return str(self.lead_name) +  str(self.subject)
@@ -75,6 +76,8 @@ class masterProduct(models.Model):
     def __str__(self) -> str:
         return str(self.product_sku)+str(self.product_name)
 
+
+# master product imports 
 
 
 

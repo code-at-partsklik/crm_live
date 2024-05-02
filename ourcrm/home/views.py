@@ -158,7 +158,6 @@ def refreshleads_view(request):
         api_data=im_response.json()
         print(api_data,' was api data')
         response=api_data["RESPONSE"]
-        print(len(response),'was lenght of response')
         if len(response)>0:
             try:
 
@@ -166,7 +165,7 @@ def refreshleads_view(request):
                     address=f'{i["SENDER_ADDRESS"]} , {i["SENDER_CITY"]} , {i["SENDER_STATE"]} , {i["SENDER_PINCODE"]}'
                     msg=i["QUERY_MESSAGE"]
                     msg=msg.replace("<br>"," ")
-                    data=indiamartLead(query_id=i["UNIQUE_QUERY_ID"],lead_name=i["SENDER_NAME"],contact=i["SENDER_MOBILE"],email=i["SENDER_EMAIL"],subject=i["SUBJECT"],address=address,product=i["QUERY_PRODUCT_NAME"],message=msg,enquery_time=i["QUERY_TIME"],query_type=i["QUERY_TYPE"])
+                    data=indiamartLead(query_id=i["UNIQUE_QUERY_ID"],lead_name=i["SENDER_NAME"],contact=i["SENDER_MOBILE"],email=i["SENDER_EMAIL"],subject=i["SUBJECT"],address=address,product=i["QUERY_PRODUCT_NAME"],message=msg,enquery_time=i["QUERY_TIME"],query_type=i["QUERY_TYPE"],company=i["SENDER_COMPANY"])
                     data.save()
                 messages.success(request,'Refreshed ')
                 return redirect('/indiamart-leads')
