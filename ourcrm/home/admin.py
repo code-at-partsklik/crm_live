@@ -15,3 +15,15 @@ admin.site.register(indiamartLead,AdminindiaMart)
 class AdminLastQuery(admin.ModelAdmin):
     list_display=('id','last_request')
 admin.site.register(last_query,AdminLastQuery)
+
+class AdminMasterProduct(admin.ModelAdmin):
+    list_display=('id','product_sku','product_name','brand','product_type','oem_number','part_number','length','breath','height','mrp','price','description','in_stock','color','material')
+admin.site.register(masterProduct,AdminMasterProduct)
+
+class AdminProductBrand(admin.ModelAdmin):
+    list_display=('id','product_brand')
+admin.site.register(productBrand,AdminProductBrand)
+
+class AdminProductType(admin.ModelAdmin):
+    list_display=('id','product_type')
+admin.site.register(productType,AdminProductType)

@@ -38,3 +38,43 @@ class indiamartLead(models.Model):
 class last_query(models.Model):
     last_request=models.CharField(max_length=100,null=True,blank=True)
 
+
+class productBrand(models.Model):
+    product_brand=models.CharField(max_length=500,null=True,blank=True)
+
+    def __str__(self) -> str:
+        return self.product_brand
+
+
+class productType(models.Model):
+    product_type=models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return self.product_type
+
+
+
+class masterProduct(models.Model):
+    product_sku=models.CharField(max_length=200)
+    product_name=models.CharField(max_length=400,null=True,blank=True)
+    brand=models.ForeignKey(productBrand,on_delete=models.CASCADE)
+    product_type=models.ForeignKey(productType,on_delete=models.CASCADE)
+    oem_number=models.CharField(max_length=300,null=True,blank=True)
+    part_number=models.CharField(max_length=300,null=True,blank=True)
+    length=models.CharField(max_length=300,null=True,blank=True)
+    breath=models.CharField(max_length=300,null=True,blank=True)
+    height=models.CharField(max_length=300,null=True,blank=True)
+    mrp=models.IntegerField(default=0)
+    price=models.IntegerField(default=0)
+    description=models.TextField(null=True,blank=True)
+    in_stock=models.IntegerField(default=0)
+    color=models.CharField(max_length=300,null=True,blank=True)
+    material=models.TextField()
+
+    def __str__(self) -> str:
+        return str(self.product_sku)+str(self.product_name)
+
+
+
+
+

@@ -77,6 +77,10 @@ def addUser(request):
             user_data=CustomUser(email=user_email,first_name=user_name,user_role=user_role,visible_password=user_password,is_superuser=True,is_staff=True)
             user_data.set_password(user_password)
             user_data.save()
+            request.session['form_data']={
+                'name':'',
+                'email':''
+            }
             messages.success(request,'User Created Successfully')
             return redirect('/add-user')
         else:
@@ -84,6 +88,10 @@ def addUser(request):
             user_data=CustomUser(email=user_email,first_name=user_name,user_role=user_role,visible_password=user_password)
             user_data.set_password(user_password)
             user_data.save()
+            request.session['form_data']={
+                'name':'',
+                'email':''
+            }
             messages.success(request,'User Created Successfully')
             return redirect('/add-user')
     roles=roleList.objects.all()
