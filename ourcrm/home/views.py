@@ -97,7 +97,7 @@ def masterproduct_view(request):
 
 @login_required(login_url='/login')
 def indiamartleads_view(request):
-    all_leads=indiamartLead.objects.all()
+    all_leads=indiamartLead.objects.all().order_by('-id')
     return render(request,'LeadManagement/indiamart.html',{'all_leads':all_leads})
 
 def forgotpassword_view(request):
