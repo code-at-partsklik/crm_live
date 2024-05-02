@@ -19,6 +19,7 @@
     <title>PartsKlik CRM</title>
 
     <link href="../../static/css/app.css" rel="stylesheet" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -28,6 +29,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="semantic/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic/dist/semantic.min.js"></script>
   </head>
 
   <body>
@@ -37,6 +50,8 @@
       <div class="main">
         {% include "components/navbar.html" %}
         <div>{% include "components/message.html" %}</div>
+        <!-- <div class="ui modal">{% include "components/editproduct.html" %}</div> -->
+
         <main class="content">
           <div class="container-fluid p-0">
             <h1 class="h3 mb-3"><strong>Master</strong> Products</h1>
@@ -61,7 +76,9 @@
                     </div>
                   </div>
                   <div class="col-md-6" style="text-align: right">
-                    <button class="btn btn-primary">Add product</button>
+                    <button type="button" class="btn btn-primary">
+                      Add product
+                    </button>
 
                     <button class="btn btn-secondary">Import product</button>
 
