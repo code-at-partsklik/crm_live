@@ -54,85 +54,104 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>Master</strong> Products</h1>
+            <h1 class="h3 mb-3"><strong>Product</strong> Details</h1>
 
-            <div class="card">
-              <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 style="text-align: center">
+                      <img
+                        src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Toyota-Fortuner-new-model-17201-11080-1_671x901.webp?v=1700114850"
+                        alt="product_img"
+                        style="
+                          width: 325px;
+                          height: 340px;
+                          border-radius: 8px;
+                          object-fit: cover;
+                          padding: 10px;
+                        "
+                      />
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="input-group flex-nowrap">
-                      <span class="input-group-text" id="addon-wrapping"
-                        ><i class="fa fa-search" aria-hidden="true"></i
-                      ></span>
+                    <div class="card">
+                      <div class="card-body">
+                        <label class="input_label"
+                          ><i
+                            class="fa fa-angle-double-right"
+                            aria-hidden="true"
+                          ></i>
+                          Product Details</label
+                        >
+                        <div class="p_detail my-3">
+                          <h6>
+                            <span style="color: rgb(153, 153, 153)">SKU: </span>
+                            <b
+                              class="badge bg-info"
+                              style="font-size: 13px; letter-spacing: 0.3px"
+                              >#PRTK0002</b
+                            >
+                          </h6>
+                          <h6 class="my-3">
+                            <span style="color: rgb(153, 153, 153)"
+                              >Product:
+                            </span>
+                            <b>TURBOCHARGER XUV-300 TEL</b>
+                          </h6>
 
-                      <!-- Input search field start -->
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search..."
-                        aria-describedby="addon-wrapping"
-                      />
-                      <!-- Input search field end -->
+                          <h6 class="my-3">
+                            <span style="color: rgb(153, 153, 153)"
+                              >Brand:
+                            </span>
+                            <b>TEL</b>
+                          </h6>
+
+                          <h6 class="my-3">
+                            <span style="color: rgb(153, 153, 153)"
+                              >Type:
+                            </span>
+                            <b>TURBOCHARGER</b>
+                          </h6>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-6" style="text-align: right">
-                    <a href="/add-product" class="btn btn-primary">
-                      Add product
-                    </a>
 
-                    <button class="btn btn-secondary">Import product</button>
+                    <div class="card">
+                      <div class="card-body">
+                        <label class="input_label"
+                          ><i
+                            class="fa fa-angle-double-right"
+                            aria-hidden="true"
+                          ></i>
+                          Product Price</label
+                        >
+                        <div class="p_detail my-3">
+                          <h6>
+                            <span style="color: rgb(153, 153, 153)"
+                              >Product Price:
+                            </span>
+                            <b style="font-size: 18px; color: red">₹15,000</b>
+                          </h6>
 
-                    <button class="btn btn-success">Export product</button>
+                          <h6 class="my-3">
+                            <span style="color: rgb(153, 153, 153)"
+                              >Product MRP:
+                            </span>
+                            <b style="color: rgb(97, 97, 97)">₹20,000</b>
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <table class="table border" style="font-size: 13px">
-              <thead class="table-primary">
-                <tr>
-                  <td>SKU</td>
-                  <td>Product</td>
-                  <td>Product Type</td>
-                  <td>Brand</td>
-                  <td>Part Numbers</td>
-                  <td>OEM Numbers</td>
-                  <td>Product Price</td>
-                  <td>Product MRP</td>
-                  <td>Stock</td>
-                  <td>Dimensions</td>
-                  <td>Weight</td>
-                  <td>Color/Material</td>
-                  <td>Action</td>
-                </tr>
-              </thead>
-              <tbody style="background-color: white">
-                <tr>
-                  <td>#123456</td>
-                  <td>TURBOCHARGER XUV-300 TEL</td>
-                  <td>Turbocharger</td>
-                  <td>E&E</td>
-                  <td>GT20-070B</td>
-                  <td>
-                    2240255, FB3Q-6K682-PD, FB3Q6K682PD, FB3Q-6K682-PE,
-                    FB3Q6K682PE, FB3Q-6K682-DD, FB3Q6K682DD, FB3Q-6K682-DB,
-                    FB3Q6K682DB, 2420485, FB3Q-6K682-PC
-                  </td>
-                  <td>₹50,000</td>
-                  <td>₹51,000</td>
-                  <td style="text-align: center"><b>6</b></td>
-                  <td>
-                    L: <b>2cm</b><br />
-                 
-                  </td>
-                  <td style="text-align: center; cursor: pointer">
-                    <a href="/detail-product"
-                      ><i style="color: green" class="fa fa-external-link"></i
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </main>
       </div>
