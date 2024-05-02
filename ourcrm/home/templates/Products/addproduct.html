@@ -52,34 +52,43 @@
 
             <div class="card">
               <form method="POST">
+                {% csrf_token %}
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-4">
                       <label class="input_label">Product Details</label>
-                      <input placeholder="Product SKU" class="form-control" />
+                      <input placeholder="Product SKU" class="form-control" name="product_sku" required/>
                       <input
                         placeholder="Product Name"
                         class="form-control my-2"
+                        name="product_name"
+                        required
                       />
-                      <input
-                        placeholder="Product Brand"
-                        class="form-control my-2"
-                      />
-                      <select class="form-control my-2">
+                     
+                      <select class="form-control my-2" name="brand">
                         <option>--Select Brand--</option>
+                        {% for brand in all_brands %}
+                        <option>{{brand}}</option>
+                        {% endfor %}
                       </select>
 
-                      <select class="form-control my-2">
+                      <select class="form-control my-2" name="product_type">
                         <option>--Select Type--</option>
+                        {% for type in all_type %}
+                        <option>{{type}}</option>
+                        {% endfor %}
                       </select>
 
                       <input
                         placeholder="OEM Number "
                         class="form-control my-2"
+                        name="oem_number"
+
                       />
                       <input
                         placeholder="Part Number"
                         class="form-control my-2"
+                        name="part_number"
                       />
                       <div class="input-group mb-3">
                         <span class="input-group-text">₹</span>
@@ -87,6 +96,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Product MRP"
+                          name="mrp"
                         />
                         <span class="input-group-text">.00</span>
                       </div>
@@ -97,6 +107,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Product Price"
+                          name="price"
                         />
                         <span class="input-group-text">.00</span>
                       </div>
@@ -104,6 +115,7 @@
                       <textarea
                         placeholder="Product Description"
                         class="form-control"
+                        name="description"
                       ></textarea>
                     </div>
                     <div class="col-md-3">
@@ -113,6 +125,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Length"
+                          name="length"
                         />
                         <span class="input-group-text" id="basic-addon2">cm</span>
                       </div>
@@ -122,6 +135,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Breadth"
+                          name="breadth"
                         />
                         <span class="input-group-text" id="basic-addon2">cm</span>
                       </div>
@@ -131,6 +145,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Height"
+                          name="height"
                         />
                         <span class="input-group-text" id="basic-addon2">cm</span>
                       </div>
@@ -141,6 +156,7 @@
                           type="text"
                           class="form-control"
                           placeholder="Weight"
+                          name="weight"
                         />
                         <span class="input-group-text" id="basic-addon2">kg</span>
                       </div>
@@ -150,14 +166,17 @@
                       <input
                         placeholder="Inventory Stock"
                         class="form-control my-2"
+                        name="in_stock"
                       />
                       <input
                         placeholder="Product Color"
                         class="form-control my-2"
+                        name="color"
                       />
                       <input
                         placeholder="Product Material"
                         class="form-control my-2"
+                        name="material"
                       />
                     </div>
                   </div>

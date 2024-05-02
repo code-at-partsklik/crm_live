@@ -62,14 +62,15 @@ class masterProduct(models.Model):
     oem_number=models.CharField(max_length=300,null=True,blank=True)
     part_number=models.CharField(max_length=300,null=True,blank=True)
     length=models.CharField(max_length=300,null=True,blank=True)
-    breath=models.CharField(max_length=300,null=True,blank=True)
+    breadth=models.CharField(max_length=300,null=True,blank=True)
     height=models.CharField(max_length=300,null=True,blank=True)
+    weight=models.CharField(max_length=200,null=True,blank=True)
     mrp=models.FloatField(default=0.00)
     price=models.FloatField(default=0.00)
     description=models.TextField(null=True,blank=True)
     in_stock=models.IntegerField(default=0)
     color=models.CharField(max_length=300,null=True,blank=True)
-    material=models.TextField()
+    material=models.CharField(max_length=500,null=True,blank=True)
 
     def __str__(self) -> str:
         return str(self.product_sku)+str(self.product_name)
