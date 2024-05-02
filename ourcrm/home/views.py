@@ -156,7 +156,7 @@ def refreshleads_view(request):
     if im_response.status_code==200:
         api_data=im_response.json()
         print(api_data,' was api data')
-        response=api_data.RESPONSE
+        response=api_data["RESPONSE"]
         print(len(response),'was lenght of response')
         if len(response)>0:
             try:
