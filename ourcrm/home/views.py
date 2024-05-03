@@ -252,8 +252,13 @@ def addproduct_view(request):
     return render(request,'Products/addproduct.html',{"all_brands":all_brands,"all_type":all_type})
 
 @login_required(login_url='/login')
-def detailproduct_view(request):
-    return render(request,'Products/productdetails.html')
+def detailproduct_view(request,sku):
+    try:
+        product=masterProduct.objects.get(product_sku=sku)
+        return render(request,'Products/productdetails.html',{"product":product})
+    except Exception as e:
+        print(e)
+        messages.error(request,'Something Went Wrong')
 
 @login_required(login_url='/login')
 def importproduct_view(request):
