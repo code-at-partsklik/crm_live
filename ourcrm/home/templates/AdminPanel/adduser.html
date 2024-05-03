@@ -11,11 +11,7 @@
       name="description"
       content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
     />
-    <meta name="author" content="AdminKit" />
-    <meta
-      name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
-    />
+    <meta name="author" content="PartsKlik" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
@@ -65,7 +61,14 @@
                         required
                       />
 
-                      <input type="email" class="form-control my-2" placeholder="Email" name="user-email" value="{{ request.session.form_data.email }}" required />
+                      <input
+                        type="email"
+                        class="form-control my-2"
+                        placeholder="Email"
+                        name="user-email"
+                        value="{{ request.session.form_data.email }}"
+                        required
+                      />
                       <select
                         class="form-control my-2"
                         placeholder="Role"
@@ -77,23 +80,28 @@
                         {% endfor %}
                       </select>
 
-                      <input
-                        type="text"
-                        class="form-control my-2"
-                        placeholder="Password"
-                        name="user-password"
-                        required
-                      />
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input
+                            type="text"
+                            class="form-control my-2"
+                            placeholder="Password"
+                            name="user-password"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <input
+                            type="text"
+                            class="form-control my-2"
+                            placeholder="Confirm Password"
+                            name="confirm-password"
+                            required
+                          />
+                        </div>
+                      </div>
 
-                      <input
-                        type="text"
-                        class="form-control my-2"
-                        placeholder="Confirm Password"
-                        name="confirm-password"
-                        required
-                      />
-
-                      <button type="submit" class="btn btn-primary">
+                      <button type="submit" class="btn btn-primary my-3">
                         Add User
                       </button>
                     </div>
