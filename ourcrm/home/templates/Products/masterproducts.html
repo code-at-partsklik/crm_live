@@ -109,29 +109,28 @@
                 </tr>
               </thead>
               <tbody style="background-color: white">
+                {% for product in all_products  %}
                 <tr>
-                  <td>#123456</td>
-                  <td>TURBOCHARGER XUV-300 TEL</td>
-                  <td>Turbocharger</td>
-                  <td>E&E</td>
-                  <td>GT20-070B</td>
+                  <td>#{{product.product_sku}}</td>
+                  <td>{{product.product_name}}</td>
+                  <td>{{product.product_type}}</td>
+                  <td>{{product.brand}}</td>
+                  <td>{{product.part_number}}</td>
                   <td>
-                    2240255, FB3Q-6K682-PD, FB3Q6K682PD, FB3Q-6K682-PE,
-                    FB3Q6K682PE, FB3Q-6K682-DD, FB3Q6K682DD, FB3Q-6K682-DB,
-                    FB3Q6K682DB, 2420485, FB3Q-6K682-PC
+                    {{product.oem_number}}
                   </td>
-                  <td>₹50,000</td>
-                  <td>₹51,000</td>
-                  <td style="text-align: center"><b>6</b></td>
+                  <td>₹{{product.price}}</td>
+                  <td>₹{{product.mrp}}</td>
+                  <td style="text-align: center"><b>{{product.in_stock}}</b></td>
                   <td>
-                    L: <b>2cm</b><br />
-                    B: <b>4cm</b><br />
-                    W: <b>5cm</b>
+                    L: <b>{{product.length}}cm</b><br />
+                    B: <b>{{product.breadth}}cm</b><br />
+                    H: <b>{{product.height}}cm</b>
                   </td>
-                  <td>25kg</td>
+                  <td>{{product.weight}}kg</td>
                   <td>
-                    C: <b>Silver</b><br />
-                    M: <b>Metal</b>
+                    C: <b>{{product.color}}</b><br />
+                    M: <b>{{product.material}}</b>
                   </td>
                   <td style="text-align: center; cursor: pointer">
                     <a href="/detail-product"
@@ -139,6 +138,7 @@
                     ></a>
                   </td>
                 </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>

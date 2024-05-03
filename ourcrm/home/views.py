@@ -196,7 +196,8 @@ def update_data(request):
 
 @login_required(login_url='/login')
 def masterproduct_view(request):
-    return render(request,'Products/masterproducts.html')
+    all_products=masterProduct.objects.all()
+    return render(request,'Products/masterproducts.html',{"all_products":all_products})
 
 @login_required(login_url='/login')
 def addproduct_view(request):
