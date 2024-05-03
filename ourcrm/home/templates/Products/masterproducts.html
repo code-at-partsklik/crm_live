@@ -50,7 +50,6 @@
       <div class="main">
         {% include "components/navbar.html" %}
         <div>{% include "components/message.html" %}</div>
-        <!-- <div class="ui modal">{% include "components/editproduct.html" %}</div> -->
 
         <main class="content">
           <div class="container-fluid p-0">
@@ -99,8 +98,8 @@
                   <td>Brand</td>
                   <td>Part Numbers</td>
                   <td>OEM Numbers</td>
-                  <td>Product Price</td>
-                  <td>Product MRP</td>
+                  <td>Price</td>
+                  <td>MRP</td>
                   <td>Stock</td>
                   <td>Dimensions</td>
                   <td>Weight</td>
@@ -109,19 +108,23 @@
                 </tr>
               </thead>
               <tbody style="background-color: white">
-                {% for product in all_products  %}
+                {% for product in all_products %}
                 <tr>
                   <td>#{{product.product_sku}}</td>
                   <td>{{product.product_name}}</td>
                   <td>{{product.product_type}}</td>
                   <td>{{product.brand}}</td>
                   <td>{{product.part_number}}</td>
+                  <td>{{product.oem_number}}</td>
                   <td>
-                    {{product.oem_number}}
+                    <b style="color: rgb(255, 72, 0)">₹{{product.price}}</b>
                   </td>
-                  <td>₹{{product.price}}</td>
                   <td>₹{{product.mrp}}</td>
-                  <td style="text-align: center"><b>{{product.in_stock}}</b></td>
+                  <td style="text-align: center; font-size: 17px">
+                    <span class="badge rounded-pill bg-info"
+                      >{{product.in_stock}}</span
+                    >
+                  </td>
                   <td>
                     L: <b>{{product.length}}cm</b><br />
                     B: <b>{{product.breadth}}cm</b><br />
