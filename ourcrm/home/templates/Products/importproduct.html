@@ -52,7 +52,19 @@
 
             <div class="card">
               <div class="card-body">
-                <button class="btn btn-primary">Import Products</button>
+                <button
+                  class="btn btn-primary"
+                  onclick="document.getElementById('uploadExcel').click()"
+                >
+                  Import Products
+                </button>
+                <input
+                  type="file"
+                  id="uploadExcel"
+                  style="display: none"
+                  accept=".xlsx"
+                  onchange="handleFile(this.files)"
+                />
                 <button class="btn btn-danger">Update Stock</button>
               </div>
             </div>
