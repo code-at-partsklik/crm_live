@@ -52,6 +52,21 @@
 
             <div class="card">
               <div class="card-body">
+                <button
+                  class="btn btn-primary"
+                  onclick="document.getElementById('uploadExcel').click()"
+                >
+                  Import Products
+                </button>
+                <input
+                  type="file"
+                  id="uploadExcel"
+                  style="display: none"
+                  accept=".xlsx, .csv"
+                  onchange="handleFile(this.files)"
+                />
+                <button class="btn btn-danger">Update Stock</button>
+              </div>
                 <form class='form' method="POST" action="/upload-prodcut/" id="upload_form">
                   {% csrf_token %}
                     <a class="btn btn-primary" onclick="document.getElementById('uploadExcel').click()">
@@ -64,7 +79,6 @@
 
               <button class="btn btn-danger">Update Stock</button>
               </form>  
-            </div>
             </div>
 
             <div class="card">

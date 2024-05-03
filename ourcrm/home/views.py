@@ -276,6 +276,7 @@ def onlineorders_view(request):
     return render(request,'OnlineOrders/orders.html')
 
 
+
 @csrf_exempt  # This decorator allows POST requests without CSRF token (for demo purposes only)
 def handle_excel_upload(request):
     if request.method == 'POST' and request.FILES.get('excel_file'):
@@ -288,3 +289,12 @@ def handle_excel_upload(request):
         return JsonResponse({'message': 'File uploaded successfully!'})
     else:
         return JsonResponse({'error': 'No file uploaded or invalid request method.'}, status=400)
+
+@login_required(login_url='/login')
+
+def detailorders_view(request):
+    return render(request,'OnlineOrders/orderdetails.html')
+
+def upload_product_view(request):
+    pass
+
