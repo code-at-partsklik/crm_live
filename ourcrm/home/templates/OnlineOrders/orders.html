@@ -38,7 +38,7 @@
         <div>{% include "components/message.html" %}</div>
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>IndiaMart</strong> Leads</h1>
+            <h1 class="h3 mb-3"><strong>Online</strong> Orders</h1>
 
             <div class="card">
               <div class="card-body">
@@ -71,29 +71,41 @@
             <table class="table border" style="font-size: 13px">
               <thead class="table-primary">
                 <tr>
-                  <td style="min-width: 15vh">Lead Name</td>
-                  <td style="min-width: 15vh">Contact</td>
-                  <td>Email</td>
-                  <td>Subject</td>
-                  <td>Address</td>
-                  <td>Product</td>
-                  <td>Message</td>
-                  <td style="min-width: 18vh">Enquiry Time</td>
+                  <td>Order No.</td>
+                  <td>Date</td>
+                  <td>Customer</td>
+                  <td>Total</td>
+                  <td>Payment status</td>
+                  <td>Fulfillment</td>
+                  <td>Items</td>
+                  <td>Delivery</td>
+                  <td>Tags</td>
                 </tr>
               </thead>
               <tbody style="background-color: white">
-                {% for lead in all_leads %}
                 <tr>
-                  <td>{{lead.lead_name}}</td>
-                  <td>{{lead.contact}}</td>
-                  <td>{{lead.email}}</td>
-                  <td>{{lead.subject}}</td>
-                  <td>{{lead.address}}</td>
-                  <td>{{lead.product}}</td>
-                  <td>{{lead.message}}</td>
-                  <td>{{lead.enquery_time}}</td>
+                  <td>#1254</td>
+                  <td>May 3 at 2:15 pm</td>
+                  <td>Ankur Jyoti Dutta</td>
+                  <td>₹20,000</td>
+                  <td>
+                    <span class="badge bg-success" style="font-size: 12px"
+                      >Paid</span
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-secondary" style="font-size: 12px"
+                      >Fulfilled</span
+                    >
+                  </td>
+                  <td>2 items</td>
+                  <td>Delivered</td>
+                  <td>
+                    <span class="badge bg-secondary" style="font-size: 12px"
+                      >Ankur</span
+                    >
+                  </td>
                 </tr>
-                {% endfor %}
               </tbody>
             </table>
           </div>

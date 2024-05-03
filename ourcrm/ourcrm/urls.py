@@ -17,4 +17,5 @@ urlpatterns = [
     path('add-product/',addproduct_view),
     path('detail-product/',detailproduct_view),
     path('import-product/',importproduct_view),
+     path('online-orders/',onlineorders_view),
 ]

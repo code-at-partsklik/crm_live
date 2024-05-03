@@ -19,14 +19,28 @@
     <title>PartsKlik CRM</title>
 
     <link href="../../static/css/app.css" rel="stylesheet" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="semantic/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic/dist/semantic.min.js"></script>
   </head>
 
   <body>
@@ -36,9 +50,10 @@
       <div class="main">
         {% include "components/navbar.html" %}
         <div>{% include "components/message.html" %}</div>
+
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>IndiaMart</strong> Leads</h1>
+            <h1 class="h3 mb-3"><strong>Master</strong> Products</h1>
 
             <div class="card">
               <div class="card-body">
@@ -60,40 +75,42 @@
                     </div>
                   </div>
                   <div class="col-md-6" style="text-align: right">
-                    <a href="/refresh-leads" class="btn btn-success"
-                      ><i class="fa fa-refresh" aria-hidden="true"></i>
-                      Reload</a
+                    <a href="/add-product" class="btn btn-primary">
+                      Add product
+                    </a>
+
+                    <a class="btn btn-secondary" href="/import-product"
+                      >Import product</a
                     >
+
+                    <button class="btn btn-success">Export product</button>
                   </div>
                 </div>
               </div>
             </div>
+
             <table class="table border" style="font-size: 13px">
               <thead class="table-primary">
                 <tr>
-                  <td style="min-width: 15vh">Lead Name</td>
-                  <td style="min-width: 15vh">Contact</td>
-                  <td>Email</td>
-                  <td>Subject</td>
-                  <td>Address</td>
+                  <td>SKU</td>
                   <td>Product</td>
-                  <td>Message</td>
-                  <td style="min-width: 18vh">Enquiry Time</td>
+                  <td>Product Type</td>
+                  <td>Brand</td>
+                  <td>Part Numbers</td>
+                  <td>OEM Numbers</td>
+                  <td>Price</td>
+                  <td>MRP</td>
+                  <td>Stock</td>
+                  <td>Dimensions</td>
+                  <td>Weight</td>
+                  <td>Color/Material</td>
+                  <td>Action</td>
                 </tr>
               </thead>
               <tbody style="background-color: white">
-                {% for lead in all_leads %}
                 <tr>
-                  <td>{{lead.lead_name}}</td>
-                  <td>{{lead.contact}}</td>
-                  <td>{{lead.email}}</td>
-                  <td>{{lead.subject}}</td>
-                  <td>{{lead.address}}</td>
-                  <td>{{lead.product}}</td>
-                  <td>{{lead.message}}</td>
-                  <td>{{lead.enquery_time}}</td>
+                  <td></td>
                 </tr>
-                {% endfor %}
               </tbody>
             </table>
           </div>
