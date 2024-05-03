@@ -18,9 +18,9 @@ urlpatterns = [
     path('product-detail/<sku>/',detailproduct_view),
     path('import-product/',importproduct_view),
     path('online-orders/',onlineorders_view),
-<<<<<<< HEAD
+
     path('order-detail/',detailorders_view),
-=======
+
     path('upload-product/',upload_product_view)
->>>>>>> 3bb0da32959a8e6585418efc4fb01789158d21b4
+
 ]
