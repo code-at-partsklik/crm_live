@@ -290,8 +290,8 @@ def handle_excel_upload(request):
     else:
         return JsonResponse({'error': 'No file uploaded or invalid request method.'}, status=400)
 
-@login_required(login_url='/login')
 
+@login_required(login_url='/login')
 def detailorders_view(request):
     return render(request,'OnlineOrders/orderdetails.html')
 

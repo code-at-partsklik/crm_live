@@ -52,7 +52,7 @@
 
             <div class="card">
               <div class="card-body">
-                <button
+                {% comment %} <button
                   class="btn btn-primary"
                   onclick="document.getElementById('uploadExcel').click()"
                 >
@@ -64,8 +64,8 @@
                   style="display: none"
                   accept=".xlsx, .csv"
                   onchange="handleFile(this.files)"
-                />
-                <button class="btn btn-danger">Update Stock</button>
+                /> {% endcomment %}
+                {% comment %} <button class="btn btn-danger">Update Stock</button>  {% endcomment %}
               </div>
                 <form class='form' method="POST" action="/upload-prodcut/" id="upload_form">
                   {% csrf_token %}
