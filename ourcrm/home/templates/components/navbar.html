@@ -193,11 +193,7 @@
           href="#"
           data-bs-toggle="dropdown"
         >
-          <img
-            src="/static/img/avatars/avatar.jpg"
-            class="avatar img-fluid rounded me-1"
-            alt="Charles Hall"
-          />
+          <img src="../../static/img/avatars/user.webp" class="avatar img-fluid rounded me-1" alt="" />
           {% if user.is_superuser %}
           <span class="text-dark">Admin</span>
           {% else %}
@@ -227,7 +223,9 @@
             Panel</a
           >
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Log out</a>
+          <a class="dropdown-item" href="/logout"
+            ><i class="align-middle me-1" data-feather="log-out"></i> Log out
+          </a>
         </div>
       </li>
     </ul>

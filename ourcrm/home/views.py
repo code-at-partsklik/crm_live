@@ -206,12 +206,12 @@ def addproduct_view(request):
         product_name=request.POST.get('product_name')
         brand=request.POST.get('brand')
         if brand=="--Select Brand--":
-            brand=productBrand.objects.get(product_brand="Other")
+            brand=productBrand.objects.get(product_brand="None")
         else:
             brand=productBrand.objects.get(product_brand=brand)
         product_type=request.POST.get('product_type')
         if product_type=="--Select Type--":
-            product_type=productType.objects.get(product_type="Other")
+            product_type=productType.objects.get(product_type="None")
         else:
             product_type=productType.objects.get(product_type=product_type)
         print(brand,'is brand and type',product_type)
@@ -222,9 +222,15 @@ def addproduct_view(request):
         height=request.POST.get('height')
         weight=request.POST.get('weight')
         mrp=request.POST.get('mrp')
+        if mrp =='':
+            mrp=0
         price=request.POST.get('price')
+        if price=='':
+            price=0
         description=request.POST.get('description')
         in_stock=request.POST.get('in_stock')
+        if in_stock=='':
+            in_stock=0
         color=request.POST.get('color')
         material=request.POST.get('material')
         sku_check=masterProduct.objects.filter(product_sku=product_sku)
@@ -235,7 +241,7 @@ def addproduct_view(request):
             product_save=masterProduct(product_sku=product_sku,product_name=product_name,brand=brand,product_type=product_type,oem_number=oem_number,part_number=part_number,length=length,breadth=breadth,height=height,weight=weight,mrp=mrp,price=price,description=description,in_stock=in_stock,color=color,material=material)
             product_save.save()
             messages.success(request,'Product Added')
-            return redirect('/add-product')
+            return redirect('/master-products')
         except Exception as e:
             print(e)
             messages.error(request,'Something Went Wrong')
@@ -254,3 +260,8 @@ def importproduct_view(request):
     return render(request,'Products/importproduct.html')
 
 # --------------------------------Master Products End --------------------------
+
+# --------------------------------Online Orders Start --------------------------
+@login_required(login_url='/login')
+def onlineorders_view(request):
+    return render(request,'OnlineOrders/orders.html')

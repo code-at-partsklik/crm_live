@@ -108,40 +108,9 @@
                 </tr>
               </thead>
               <tbody style="background-color: white">
-                {% for product in all_products %}
                 <tr>
-                  <td>#{{product.product_sku}}</td>
-                  <td>{{product.product_name}}</td>
-                  <td>{{product.product_type}}</td>
-                  <td>{{product.brand}}</td>
-                  <td>{{product.part_number}}</td>
-                  <td>{{product.oem_number}}</td>
-                  <td>
-                    <b style="color: rgb(255, 72, 0)">₹{{product.price}}</b>
-                  </td>
-                  <td>₹{{product.mrp}}</td>
-                  <td style="text-align: center; font-size: 17px">
-                    <span class="badge rounded-pill bg-info"
-                      >{{product.in_stock}}</span
-                    >
-                  </td>
-                  <td>
-                    L: <b>{{product.length}}cm</b><br />
-                    B: <b>{{product.breadth}}cm</b><br />
-                    H: <b>{{product.height}}cm</b>
-                  </td>
-                  <td>{{product.weight}}kg</td>
-                  <td>
-                    C: <b>{{product.color}}</b><br />
-                    M: <b>{{product.material}}</b>
-                  </td>
-                  <td style="text-align: center; cursor: pointer">
-                    <a href="/detail-product"
-                      ><i style="color: green" class="fa fa-external-link"></i
-                    ></a>
-                  </td>
+                  <td></td>
                 </tr>
-                {% endfor %}
               </tbody>
             </table>
           </div>

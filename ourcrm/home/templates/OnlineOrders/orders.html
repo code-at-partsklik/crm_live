@@ -19,28 +19,14 @@
     <title>PartsKlik CRM</title>
 
     <link href="../../static/css/app.css" rel="stylesheet" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="semantic/dist/semantic.min.css"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="semantic/dist/semantic.min.js"></script>
   </head>
 
   <body>
@@ -50,10 +36,9 @@
       <div class="main">
         {% include "components/navbar.html" %}
         <div>{% include "components/message.html" %}</div>
-
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>Master</strong> Products</h1>
+            <h1 class="h3 mb-3"><strong>Online</strong> Orders</h1>
 
             <div class="card">
               <div class="card-body">
@@ -75,73 +60,52 @@
                     </div>
                   </div>
                   <div class="col-md-6" style="text-align: right">
-                    <a href="/add-product" class="btn btn-primary">
-                      Add product
-                    </a>
-
-                    <a class="btn btn-secondary" href="/import-product"
-                      >Import product</a
+                    <a href="/refresh-leads" class="btn btn-success"
+                      ><i class="fa fa-refresh" aria-hidden="true"></i>
+                      Reload</a
                     >
-
-                    <button class="btn btn-success">Export product</button>
                   </div>
                 </div>
               </div>
             </div>
-
             <table class="table border" style="font-size: 13px">
               <thead class="table-primary">
                 <tr>
-                  <td>SKU</td>
-                  <td>Product</td>
-                  <td>Product Type</td>
-                  <td>Brand</td>
-                  <td>Part Numbers</td>
-                  <td>OEM Numbers</td>
-                  <td>Price</td>
-                  <td>MRP</td>
-                  <td>Stock</td>
-                  <td>Dimensions</td>
-                  <td>Weight</td>
-                  <td>Color/Material</td>
-                  <td>Action</td>
+                  <td>Order No.</td>
+                  <td>Date</td>
+                  <td>Customer</td>
+                  <td>Total</td>
+                  <td>Payment status</td>
+                  <td>Fulfillment</td>
+                  <td>Items</td>
+                  <td>Delivery</td>
+                  <td>Tags</td>
                 </tr>
               </thead>
               <tbody style="background-color: white">
-                {% for product in all_products %}
                 <tr>
-                  <td>#{{product.product_sku}}</td>
-                  <td>{{product.product_name}}</td>
-                  <td>{{product.product_type}}</td>
-                  <td>{{product.brand}}</td>
-                  <td>{{product.part_number}}</td>
-                  <td>{{product.oem_number}}</td>
+                  <td>#1254</td>
+                  <td>May 3 at 2:15 pm</td>
+                  <td>Ankur Jyoti Dutta</td>
+                  <td>₹20,000</td>
                   <td>
-                    <b style="color: rgb(255, 72, 0)">₹{{product.price}}</b>
-                  </td>
-                  <td>₹{{product.mrp}}</td>
-                  <td style="text-align: center; font-size: 17px">
-                    <span class="badge rounded-pill bg-info"
-                      >{{product.in_stock}}</span
+                    <span class="badge bg-success" style="font-size: 12px"
+                      >Paid</span
                     >
                   </td>
                   <td>
-                    L: <b>{{product.length}}cm</b><br />
-                    B: <b>{{product.breadth}}cm</b><br />
-                    H: <b>{{product.height}}cm</b>
+                    <span class="badge bg-secondary" style="font-size: 12px"
+                      >Fulfilled</span
+                    >
                   </td>
-                  <td>{{product.weight}}kg</td>
+                  <td>2 items</td>
+                  <td>Delivered</td>
                   <td>
-                    C: <b>{{product.color}}</b><br />
-                    M: <b>{{product.material}}</b>
-                  </td>
-                  <td style="text-align: center; cursor: pointer">
-                    <a href="/detail-product"
-                      ><i style="color: green" class="fa fa-external-link"></i
-                    ></a>
+                    <span class="badge bg-secondary" style="font-size: 12px"
+                      >Ankur</span
+                    >
                   </td>
                 </tr>
-                {% endfor %}
               </tbody>
             </table>
           </div>

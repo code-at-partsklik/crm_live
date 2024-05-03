@@ -70,19 +70,24 @@
                         required
                       />
 
-                      <select class="form-control my-2" name="brand">
-                        <option>--Select Brand--</option>
-                        {% for brand in all_brands %}
-                        <option>{{brand}}</option>
-                        {% endfor %}
-                      </select>
-
-                      <select class="form-control my-2" name="product_type">
-                        <option>--Select Type--</option>
-                        {% for type in all_type %}
-                        <option>{{type}}</option>
-                        {% endfor %}
-                      </select>
+                      <div class="row">
+                        <div class="col-6">
+                          <select class="form-control my-2" name="brand">
+                            <option>--Select Brand--</option>
+                            {% for brand in all_brands %}
+                            <option>{{brand}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-6">
+                          <select class="form-control my-2" name="product_type">
+                            <option>--Select Type--</option>
+                            {% for type in all_type %}
+                            <option>{{type}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
 
                       <input
                         placeholder="OEM Number "
