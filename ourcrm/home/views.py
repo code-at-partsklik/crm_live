@@ -270,3 +270,7 @@ def importproduct_view(request):
 @login_required(login_url='/login')
 def onlineorders_view(request):
     return render(request,'OnlineOrders/orders.html')
+
+@login_required(login_url='/login')
+def upload_product_view(request):
+    pass
