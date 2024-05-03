@@ -52,6 +52,7 @@
 
             <div class="card">
               <div class="card-body">
+<<<<<<< HEAD
                 <button
                   class="btn btn-primary"
                   onclick="document.getElementById('uploadExcel').click()"
@@ -67,6 +68,21 @@
                 />
                 <button class="btn btn-danger">Update Stock</button>
               </div>
+=======
+                <form class='form' method="POST" action="/upload-prodcut/" id="upload_form">
+                  {% csrf_token %}
+                    <a class="btn btn-primary" onclick="document.getElementById('uploadExcel').click()">
+                      Import Products
+                    </a>
+                    <input type="file" id="uploadExcel" style="display: none" name='excel_file' accept=".xlsx,.csv" onchange="handleFile(this.files)" />
+              </form>
+
+              <form>
+
+              <button class="btn btn-danger">Update Stock</button>
+              </form>  
+            </div>
+>>>>>>> 3bb0da32959a8e6585418efc4fb01789158d21b4
             </div>
 
             <div class="card">
@@ -104,5 +120,11 @@
       </div>
     </div>
   </body>
+  <script>
+    function handleFile(files) {
+        const file = files[0];
+        console.log('file mil gayi bhai sahab',file)
+    }
+    </script>
   <script src="../../static/js/app.js"></script>
 </html>

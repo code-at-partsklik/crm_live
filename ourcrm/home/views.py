@@ -272,5 +272,10 @@ def onlineorders_view(request):
     return render(request,'OnlineOrders/orders.html')
 
 @login_required(login_url='/login')
+<<<<<<< HEAD
 def detailorders_view(request):
     return render(request,'OnlineOrders/orderdetails.html')
+=======
+def upload_product_view(request):
+    pass
+>>>>>>> 3bb0da32959a8e6585418efc4fb01789158d21b4

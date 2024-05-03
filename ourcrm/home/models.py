@@ -57,7 +57,7 @@ class productType(models.Model):
 
 class masterProduct(models.Model):
     product_sku=models.CharField(max_length=200)
-    product_name=models.CharField(max_length=400,null=True,blank=True)
+    product_name=models.CharField(max_length=1000,null=True,blank=True)
     brand=models.ForeignKey(productBrand,on_delete=models.CASCADE)
     product_type=models.ForeignKey(productType,on_delete=models.CASCADE)
     oem_number=models.TextField(null=True,blank=True)
@@ -72,6 +72,7 @@ class masterProduct(models.Model):
     in_stock=models.IntegerField(default=0)
     color=models.CharField(max_length=300,null=True,blank=True)
     material=models.CharField(max_length=500,null=True,blank=True)
+    partsklik_brand=models.CharField(max_length=300,null=True,blank=True)
 
     def __str__(self) -> str:
         return str(self.product_sku)+str(self.product_name)
