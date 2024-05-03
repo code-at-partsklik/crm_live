@@ -18,4 +18,5 @@ urlpatterns = [
     path('product-detail/<sku>/',detailproduct_view),
     path('import-product/',importproduct_view),
     path('online-orders/',onlineorders_view),
+    path('order-detail/',detailorders_view),
 ]
