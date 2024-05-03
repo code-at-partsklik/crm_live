@@ -18,5 +18,5 @@ urlpatterns = [
     path('product-detail/<sku>/',detailproduct_view),
     path('import-product/',importproduct_view),
     path('online-orders/',onlineorders_view),
-    path('upload-product/',upload_product_view)
+    path('upload-product/',handle_excel_upload)
 ]

@@ -9,6 +9,10 @@ from cryptography.fernet import Fernet
 import requests
 from django.http import JsonResponse
 import datetime
+from django.views.decorators.csrf import csrf_exempt
+import pandas as pd
+
+# partsklik brand pending to save in masterproduct
 
 indiamart_api='https://mapi.indiamart.com/wservce/crm/crmListing/v2/?glusr_crm_key=mRyyE7lk4njHTPev5HGC7lqHq1TGmw==' 
 
@@ -271,6 +275,16 @@ def importproduct_view(request):
 def onlineorders_view(request):
     return render(request,'OnlineOrders/orders.html')
 
-@login_required(login_url='/login')
-def upload_product_view(request):
-    pass
+
+@csrf_exempt  # This decorator allows POST requests without CSRF token (for demo purposes only)
+def handle_excel_upload(request):
+    if request.method == 'POST' and request.FILES.get('excel_file'):
+        excel_file = request.FILES['excel_file']
+        df = pd.read_excel(excel_file)
+        for index, row in df.iterrows():
+            name = row['name']
+            email = row['email']
+            Contact.objects.create(name=name, email=email)
+        return JsonResponse({'message': 'File uploaded successfully!'})
+    else:
+        return JsonResponse({'error': 'No file uploaded or invalid request method.'}, status=400)
