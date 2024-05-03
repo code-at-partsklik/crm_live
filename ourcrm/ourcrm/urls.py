@@ -15,7 +15,7 @@ urlpatterns = [
     path('refresh-leads/',refreshleads_view),
     path('update-data/',update_data),
     path('add-product/',addproduct_view),
-    path('detail-product/',detailproduct_view),
+    path('product-detail/<sku>/',detailproduct_view),
     path('import-product/',importproduct_view),
-     path('online-orders/',onlineorders_view),
+    path('online-orders/',onlineorders_view),
 ]
