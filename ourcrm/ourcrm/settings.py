@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-owi($2ri69tzk!4mg9!-jy5!t%q)vf5n+q_lv^78@d7ssgymt*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'ourcrm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR,'/home/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
