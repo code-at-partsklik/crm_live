@@ -193,7 +193,11 @@
           href="#"
           data-bs-toggle="dropdown"
         >
-          <img src="../../static/img/avatars/user.webp" class="avatar img-fluid rounded me-1" alt="" />
+          <img
+            src="../../static/img/avatars/user.webp"
+            class="avatar img-fluid rounded me-1"
+            alt=""
+          />
           {% if user.is_superuser %}
           <span class="text-dark">Admin</span>
           {% else %}
@@ -217,11 +221,15 @@
             ><i class="align-middle me-1" data-feather="help-circle"></i> Help
             Center</a
           >
+
+          {% if user.is_superuser %}
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/admin"
             ><i class="align-middle me-1" data-feather="user"></i> Admin
             Panel</a
           >
+          {% endif %}
+
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/logout"
             ><i class="align-middle me-1" data-feather="log-out"></i> Log out

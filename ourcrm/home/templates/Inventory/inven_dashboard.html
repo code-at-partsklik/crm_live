@@ -53,7 +53,7 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>Master</strong> Products</h1>
+            <h1 class="h3 mb-3"><strong>Inventory</strong> Management</h1>
 
             <div class="card">
               <div class="card-body">
@@ -74,17 +74,6 @@
                       <!-- Input search field end -->
                     </div>
                   </div>
-                  <div class="col-md-6" style="text-align: right">
-                    <a href="/add-product" class="btn btn-primary">
-                      Add product
-                    </a>
-
-                    <a class="btn btn-secondary" href="/import-product"
-                      >Import product</a
-                    >
-
-                    <button class="btn btn-success">Export product</button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -92,25 +81,30 @@
             <table class="table border" style="font-size: 13px">
               <thead class="table-primary">
                 <tr>
-                  <td>SKU</td>
-                  <td>Product</td>
-                  <td>Product Type</td>
-                  <td>Brand</td>
-                  <td>Part Numbers</td>
-                  <td>OEM Numbers</td>
-                  <td>Price</td>
-                  <td>MRP</td>
-                  <td>Stock</td>
-                  <td>Dimensions</td>
-                  <td>Weight</td>
-                  <td>Color/Material</td>
-                  <td>Action</td>
+                  <td>Product SKU</td>
+                  <td>Product Name</td>
+                  <td>Part Number</td>
+                  <td>Warehouse</td>
+                  <td>Rack Number</td>
+                  <td>Quantity</td>
+
+                  <td style="text-align: center">Action</td>
                 </tr>
               </thead>
               <tbody style="background-color: white">
+                {% for product in send_data    %}
                 <tr>
-                  <td></td>
+                  <td>{{product.product_sku}}</td>
+                  <td>{{product.product_name}}</td>
+                  <td>{{product.part_number}}</td>
+                  <td>{{product.ware_house}}</td>
+                  <td>{{product.rack_number}}</td>
+                  <td>{{product.quantity}}</td>
+                  <td style="text-align: center">
+                    <a href="/inven-edit/{{product.product_sku}}"><i class="fa fa-pencil"></i></a>
+                  </td>
                 </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>

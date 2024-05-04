@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      .input_label {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: grey;
+      }
+
+      .flex_product {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Add </strong>New Order</h1>
+            <form method="POST">
+              <button
+                class="btn btn-success"
+                style="float: right; margin-top: -5vh"
+              >
+                Confirm Order
+              </button>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Products Detail</label>
+                      <div class="input-group flex-nowrap my-2">
+                        <span class="input-group-text" id="addon-wrapping"
+                          ><i class="fa fa-search" aria-hidden="true"></i
+                        ></span>
+
+                        <!-- Input search field start -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search..."
+                          aria-describedby="addon-wrapping"
+                        />
+                        <!-- Input search field end -->
+                      </div>
+
+                      <div
+                        class="my-2"
+                        style="
+                          border: 1px solid rgb(228, 228, 228);
+                          padding: 8px;
+                        "
+                      >
+                        <h6 style="font-size: 12.5px">
+                          <b
+                            >Mercedes Benz C-Class Sedan (2008-2014) Black
+                            Central AC Vent Grille W204</b
+                          >
+                        </h6>
+
+                        <h6>Price: ₹2000</h6>
+                        <input class="form-control" type="number" />
+                        <h5>Total: ₹4000</h5>
+                        <h6 style="font-size: 10.5px">
+                          SKU: <b>#PRTK-00002</b>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Customer Detail</label>
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Customer"
+                        aria-describedby="addon-wrapping"
+                      />
+                      <input
+                        type="tel"
+                        class="form-control my-2"
+                        placeholder="Contact"
+                        min="10"
+                        maxlength="10"
+                        pattern="[0-9]+"
+                        title="Please enter a valid number"
+                      />
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Email Address"
+                        aria-describedby="addon-wrapping"
+                      />
+                      <textarea
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Customer Address"
+                        rows="3"
+                      ></textarea>
+
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="State"
+                        aria-describedby="addon-wrapping"
+                      />
+
+                      <input
+                        type="text"
+                        class="form-control my-2"
+                        placeholder="Country"
+                        aria-describedby="addon-wrapping"
+                      />
+
+                      <input
+                        type="number"
+                        class="form-control my-2"
+                        placeholder="Pincode"
+                        aria-describedby="addon-wrapping"
+                      />
+
+                      <input
+                        type="number"
+                        class="form-control my-2"
+                        placeholder="Customer GST Number (optional)"
+                        aria-describedby="addon-wrapping"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Other Details</label>
+
+                      <div class="input-group my-2">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Shipping charge"
+                        />
+                      </div>
+
+                      <div class="input-group">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Estimated tax"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Payment Details</label>
+
+                      <div
+                        class="container-fluid my-2"
+                        style="
+                          padding: 2px 7px 0px 7px;
+                          border: 1px solid rgb(224, 224, 224);
+                          border-radius: 8px;
+                        "
+                      >
+                        <div class="row my-1">
+                          <div class="col-md">Subtotal</div>
+                          <div class="col-md">2 items</div>
+                          <div class="col-md" style="text-align: right">
+                            ₹4000.00
+                          </div>
+                        </div>
+
+                        <div class="row my-2">
+                          <div class="col-md">Shipping</div>
+                          <div class="col-md">-</div>
+                          <div class="col-md" style="text-align: right">
+                            ₹400.00
+                          </div>
+                        </div>
+
+                        <div class="row my-2">
+                          <div class="col-md">Estimate tax</div>
+                          <div class="col-md">-</div>
+                          <div class="col-md" style="text-align: right">
+                            ₹250.00
+                          </div>
+                        </div>
+
+                        <div
+                          class="row my-2"
+                          style="
+                            background-color: rgb(212, 212, 212);
+                            padding: 10px 0 10px 0;
+                            color: black;
+                          "
+                        >
+                          <div class="col-md">Total</div>
+                          <div class="col-md"></div>
+                          <div class="col-md" style="text-align: right">
+                            <b>₹5250.00</b>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Payment Status</label>
+                      <select class="form-control my-2" required>
+                        <option value="">--Select Payment--</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Pending">Pending</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-body">
+                      <label class="input_label">Tags</label>
+                      <select class="form-control my-2" required>
+                        <option value="">--Select--</option>
+                        <option value="Abhishek">Abhishek</option>
+                        <option value="Imran">Imran</option>
+                        <option value="Naveen">Naveen</option>
+                        <option value="Karan">Karan</option>
+                        <option value="Megha">Megha</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../static/js/app.js"></script>
+  </body>
+</html>

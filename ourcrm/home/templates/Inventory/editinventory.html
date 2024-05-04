@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="semantic/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <style>
+      .input_label {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: grey;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Edit</strong> Inventory</h1>
+
+            <table class="table border" style="font-size: 13px">
+              <thead class="table-primary">
+                <tr>
+                  <td>Product SKU</td>
+                  <td>Product Name</td>
+                  <td>Part Number</td>
+                  <td>OEM Number</td>
+                </tr>
+              </thead>
+              <tbody style="background-color: white">
+                <tr>
+                  <td>{{product.product_sku}}</td>
+                  <td>{{product.product_name}}</td>
+                  <td>{{product.part_number}}</td>
+                  <td>{{product.oem_number}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row">
+              <div class="col-md-6">
+                <form method="POST">
+                  {% csrf_token %}
+                  <input hidden readonly value="{{product.product_sku}}" name="pr_sku" />
+                <div class="card">
+                  <div class="card-body">
+                    <label class="input_label">Warehouse</label>
+                    <select
+                      class="form-control"
+                      required
+                      placeholder="Warehouse"
+                      name="warehouse"
+                    >
+                      <option value="">--Select--</option>
+                      {% for ware  in warehouse %}
+                      <option value="{{ware}}">{{ware}}</option>
+                      {% endfor %}
+                    </select>
+
+                    <label class="input_label">Rack Number</label>
+                    <select
+                      class="form-control"
+                      value="PRTK-3"
+                      required
+                      placeholder="Rack Number"
+                      name="rack"
+                    >
+                      <option value="">--Select--</option>
+                      {% for rake  in blocks  %}
+                      <option value="{{rake}}">{{rake}}</option>
+                      {% endfor %}
+                    </select>
+
+                    <label class="input_label">Qauntity</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Quantity"
+                      name="quantity"
+                      value="{{quan.quantity}}"
+                      min="0"
+                      pattern="[0-9]+"
+                      title="Please enter only numbers"
+                    />
+
+                    <button class="btn btn-primary my-3">Save</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+
+              <!-- <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h6>Product SKU</h6>
+                        <img
+                          src="../../static/img/photos/barcode.gif"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <h6>Rack Bardcode</h6>
+                        <img
+                          src="../../static/img/photos/barcode.gif"
+                          class="img-fluid"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      .input_label {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: grey;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Add</strong> Product</h1>
+            <form method="POST">
+              {% csrf_token %}
+
+              <button
+                class="btn btn-primary"
+                style="float: right; margin-top: -5vh"
+              >
+                Update Product
+              </button>
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="input_label">Product SKU</label>
+                      <input
+                        placeholder="Product SKU"
+                        class="form-control"
+                        name="product_sku"
+                        readonly
+                        disabled
+                        value="{{product.product_sku}}"
+                      />
+
+                      <label class="input_label">Product Name</label>
+                      <input
+                        placeholder="Product Name"
+                        class="form-control"
+                        name="product_name"
+                        value="{{product.product_name}}"
+                      />
+
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="input_label">Product Brand</label>
+                          <select class="form-control" name="brand">
+                            <option>--Select Brand--</option>
+                            {% for brand in all_brands %}
+                            <option>{{brand}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-6">
+                          <label class="input_label">Product Type</label>
+                          <select class="form-control" name="product_type">
+                            <option>--Select Type--</option>
+                            {% for type in all_type %}
+                            <option>{{type}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                      <label class="input_label">OEM Number</label>
+                      <input
+                        placeholder="OEM Number "
+                        class="form-control"
+                        name="oem_number"
+                        value="{{product.oem_number}}"
+                      />
+
+                      <label class="input_label">Part Number</label>
+                      <input
+                        placeholder="Part Number"
+                        class="form-control"
+                        name="part_number"
+                        value="{{product.part_number}}"
+                      />
+
+                      <label class="input_label">Product Description</label>
+                      <textarea
+                        placeholder="Product Description"
+                        class="form-control"
+                        name="description"
+                        rows="5"
+                      >
+{{product.description}}</textarea
+                      >
+                    </div>
+                    <div class="col-md-3">
+                      <label class="input_label">Product MRP</label>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product MRP"
+                          name="mrp"
+                          value="{{product.mrp}}"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+
+                      <label class="input_label">Product Price</label>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">₹</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product Price"
+                          name="price"
+                          value="{{product.price}}"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+
+                      <label class="input_label">Product Length</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Length"
+                          name="length"
+                          value="{{product.length}}"
+                        />
+                        <span class="input-group-text" id="basic-addon2"
+                          >cm</span
+                        >
+                      </div>
+                      <label class="input_label">Product Breadth</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Breadth"
+                          name="breadth"
+                          value="{{product.breadth}}"
+                        />
+                        <span class="input-group-text" id="basic-addon2"
+                          >cm</span
+                        >
+                      </div>
+                      <label class="input_label">Product Height</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Height"
+                          name="height"
+                          value="{{product.height}}"
+                        />
+                        <span class="input-group-text" id="basic-addon2"
+                          >cm</span
+                        >
+                      </div>
+
+                      <label class="input_label">Product Weight</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Weight"
+                          name="weight"
+                          value="{{product.weight}}"
+                        />
+                        <span class="input-group-text" id="basic-addon2"
+                          >kg</span
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label class="input_label">Inventory</label>
+                      <input
+                        placeholder="Inventory Stock"
+                        class="form-control"
+                        name="in_stock"
+                        value="{{product.in_stock}}"
+                      />
+
+                      <label class="input_label">Product Color</label>
+                      <input
+                        placeholder="Product Color"
+                        class="form-control"
+                        name="color"
+                        value="{{product.color}}"
+                      />
+
+                      <label class="input_label">Product Material</label>
+                      <input
+                        placeholder="Product Material"
+                        class="form-control"
+                        name="material"
+                        value="{{product.material}}"
+                      />
+
+                      <label class="input_label" style="margin-top: 18px"
+                        >PartsKlik Brand</label
+                      >
+
+                      <select name="partsklik_brand" class="form-control">
+                        <option>--Select--</option>
+                        <option value="German Purje">German Purje</option>
+                        <option value="Turbowale">Turbowale</option>
+                      </select>
+
+                      <div class="row my-1">
+                        <div class="col-md-6">
+                          <label class="input_label">GST</label>
+                          <input
+                            placeholder="GST %"
+                            class="form-control"
+                            name="gst_percent"
+                            value="{{product.gst_percent}}"
+                          />
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="input_label">HSN Code</label>
+                          <input
+                            placeholder="HSN Code"
+                            class="form-control"
+                            name="hsn_code"
+                            value="{{product.hsn_code}}"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>

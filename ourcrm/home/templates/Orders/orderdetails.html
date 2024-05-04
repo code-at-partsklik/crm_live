@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <style>
+    .flex {
+      flex-direction: row;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .colflex1 {
+      background-color: #3b7ddd;
+      padding: 10px;
+      width: 40px;
+      text-align: center;
+    }
+
+    .colflex1 i {
+      font-size: 20px;
+      color: white;
+    }
+
+    .colflex2 {
+      padding: 10px 10px 0 10px;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      {% include "components/sidebar.html" %}
+
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Order</strong> Details</h1>
+
+            <div class="row">
+              <div class="col-8">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 style="text-align: center">
+                          <img
+                            src="../../static/img/photos/shopify.svg"
+                            alt="product_img"
+                            style="border-radius: 8px; width: 100%"
+                          />
+                        </h5>
+                      </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; margin-top: -5px">
+                      <div class="flex">
+                        <div class="colflex1">
+                          <i class="fa fa-square" aria-hidden="true"></i>
+                        </div>
+                        <div class="colflex2">
+                          <h4 style="text-align: center">Fulfilled</h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; margin-top: -13px">
+                      <div class="flex">
+                        <div class="colflex1">
+                          <i class="fa fa-truck" aria-hidden="true"></i>
+                        </div>
+                        <div class="colflex2">
+                          <h4 style="text-align: center">Out for Delivery</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-9">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="p_detail">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Order No:
+                                </span>
+                                <b
+                                  class="badge bg-info"
+                                  style="font-size: 13px; letter-spacing: 0.3px"
+                                  >#12545</b
+                                >
+                              </h6>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Order Date:
+                                </span>
+                                <b
+                                  class="badge bg-secondary"
+                                  style="font-size: 13px"
+                                  >3 May 2024, 2:15 pm</b
+                                >
+                              </h6>
+                            </div>
+
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Fulfilled on:
+                                </span>
+                                <b style="font-size: 13px"
+                                  >3 May 2024, 4:15 pm</b
+                                >
+                              </h6>
+                            </div>
+                          </div>
+
+                          <hr />
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Customer:
+                                </span>
+                                <b>Ankur Jyoti Dutta</b>
+                              </h6>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Email:
+                                </span>
+                                <b>ankurdutta910@gmail.com</b>
+                              </h6>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Contact:
+                                </span>
+                                <b>+91 7086952212</b>
+                              </h6>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Marketing:
+                                </span>
+                                <b class="badge bg-dark" style="font-size: 13px"
+                                  >Subscribed</b
+                                >
+                              </h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-body">
+                        <label class="input_label"
+                          ><i
+                            class="fa fa-angle-double-right"
+                            aria-hidden="true"
+                          ></i>
+                          Shipping Address</label
+                        >
+                        <div class="p_detail my-3">
+                          <h6>
+                            <span style="color: rgb(153, 153, 153)"
+                              >Address line 1:
+                            </span>
+                            <b
+                              >A15 NH-19 Friends Colony East New Friends
+                              Colony</b
+                            >
+                          </h6>
+
+                          <h6>
+                            <span style="color: rgb(153, 153, 153)"
+                              >Address line 2:
+                            </span>
+                            <b>A/4 SAGAR SARVOTTAM SOCIETY</b>
+                          </h6>
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >City:
+                                </span>
+                                <b>Delhi</b>
+                              </h6>
+                            </div>
+
+                            <div class="col-md-4">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Pincode:
+                                </span>
+                                <b>110033</b>
+                              </h6>
+                            </div>
+
+                            <div class="col-md-4">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Country:
+                                </span>
+                                <b>India</b>
+                              </h6>
+                            </div>
+
+                            <div class="col-md-4">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Name:
+                                </span>
+                                <b>Ankur Dutta</b>
+                              </h6>
+                            </div>
+                            <div class="col-md-4">
+                              <h6>
+                                <span style="color: rgb(153, 153, 153)"
+                                  >Contact:
+                                </span>
+                                <b>7086952212</b>
+                              </h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <label class="input_label"
+                      ><i
+                        class="fa fa-angle-double-right"
+                        aria-hidden="true"
+                      ></i>
+                      Product Description</label
+                    >
+
+                    <p class="my-3">{{product.description}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <label class="input_label"
+                      ><i
+                        class="fa fa-angle-double-right"
+                        aria-hidden="true"
+                      ></i>
+                      Product Details</label
+                    >
+
+                    <div class="row my-3">
+                      <div class="col-2">
+                        <img
+                          style="
+                            width: 70px;
+                            height: 70px;
+                            object-fit: cover;
+                            border: 1px solid rgb(218, 218, 218);
+                            padding: 5px;
+                          "
+                          src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Toyota-Fortuner-new-model-17201-11080-1_671x901.webp?v=1700114850"
+                        />
+                      </div>
+                      <div class="col-10">
+                        <h6 style="font-size: 12px">
+                          <b
+                            >Mercedes Benz C-Class Sedan (2008-2014) Black
+                            Central AC Vent Grille W204</b
+                          >
+                        </h6>
+
+                        <div class="row">
+                          <div class="col-md-5">
+                            <h6>₹3000 x 1</h6>
+                            <h6 style="font-size: 10.5px">
+                              SKU: <b>#PRTK-00002</b>
+                            </h6>
+                          </div>
+
+                          <div
+                            class="col-md-7"
+                            style="border-left: 1px solid rgb(224, 224, 224)"
+                          >
+                            <h5>
+                              L: <b>25cm</b>; B: <b>40cm</b><br />
+                              H: <b>20cm</b>; W: <b>4.5kg</b>
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row my-3">
+                      <div class="col-2">
+                        <img
+                          style="
+                            width: 70px;
+                            height: 70px;
+                            object-fit: cover;
+                            border: 1px solid rgb(218, 218, 218);
+                            padding: 5px;
+                          "
+                          src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Toyota-Fortuner-new-model-17201-11080-1_671x901.webp?v=1700114850"
+                        />
+                      </div>
+                      <div class="col-10">
+                        <h6 style="font-size: 12px">
+                          <b
+                            >Mercedes Benz C-Class Sedan (2008-2014) Black
+                            Central AC Vent Grille W204</b
+                          >
+                        </h6>
+                        <div class="row">
+                          <div class="col-md-5">
+                            <h6>₹3000 x 1</h6>
+                            <h6 style="font-size: 10.5px">
+                              SKU: <b>#PRTK-00001</b>
+                            </h6>
+                          </div>
+
+                          <div
+                            class="col-md-7"
+                            style="border-left: 1px solid rgb(224, 224, 224)"
+                          >
+                            <h5>
+                              L: <b>25cm</b>; B: <b>40cm</b><br />
+                              H: <b>20cm</b>; W: <b>4.5kg</b>
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <label class="input_label"
+                      ><i
+                        class="fa fa-angle-double-right"
+                        aria-hidden="true"
+                      ></i>
+                      Total Pricing</label
+                    >
+
+                    <h6 class="my-3" style="font-size: 13px; line-height: 16px">
+                      <b>{{product.oem_number}}</b>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/js/app.js"></script>
+</html>

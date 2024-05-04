@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from home.managers import *
+import datetime
 
 class CustomUser(AbstractUser):
     username = None
@@ -56,7 +57,7 @@ class productType(models.Model):
 
 
 class masterProduct(models.Model):
-    product_sku=models.CharField(max_length=200)
+    product_sku=models.CharField(max_length=200,null=True,blank=True)
     product_name=models.CharField(max_length=1000,null=True,blank=True)
     brand=models.ForeignKey(productBrand,on_delete=models.CASCADE)
     product_type=models.ForeignKey(productType,on_delete=models.CASCADE)
@@ -66,17 +67,40 @@ class masterProduct(models.Model):
     breadth=models.CharField(max_length=300,null=True,blank=True)
     height=models.CharField(max_length=300,null=True,blank=True)
     weight=models.CharField(max_length=200,null=True,blank=True)
-    mrp=models.FloatField(default=0.00)
-    price=models.FloatField(default=0.00)
+    mrp=models.FloatField(default=0.00,null=True,blank=True)
+    price=models.FloatField(default=0.00,null=True,blank=True)
     description=models.TextField(null=True,blank=True)
     in_stock=models.IntegerField(default=0)
     color=models.CharField(max_length=300,null=True,blank=True)
     material=models.CharField(max_length=500,null=True,blank=True)
     partsklik_brand=models.CharField(max_length=300,null=True,blank=True)
+    hsn_code=models.CharField(max_length=300,null=True,blank=True)
+    gst_percent=models.CharField(max_length=300,null=True,blank=True)
+    datetime=models.DateTimeField(default=datetime.datetime.now())  
+    # block_number=models.CharField(max_length=300,null=True,blank=True)
+    def __str__(self) -> str:
+        return str(self.product_sku)+ "    --  " + str(self.product_name)
+    
+class Racks(models.Model):
+    rack_number=models.CharField(max_length=300)
 
     def __str__(self) -> str:
-        return str(self.product_sku)+str(self.product_name)
+        return self.rack_number
+    
+class WareHouses(models.Model):
+    ware_house=models.CharField(max_length=300,null=True,blank=True)
 
+    def __str__(self) -> str:
+        return self.ware_house
+
+class Inventory(models.Model):
+    ware_house=models.ForeignKey(WareHouses,on_delete=models.CASCADE)
+    product=models.ForeignKey(masterProduct,on_delete=models.CASCADE)
+    rack=models.ForeignKey(Racks,on_delete=models.CASCADE)
+    quantity=models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return str(self.product) + "  " +str(self.rack)
 
 # master product imports 
 

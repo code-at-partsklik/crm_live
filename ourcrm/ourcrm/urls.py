@@ -18,8 +18,15 @@ urlpatterns = [
     path('product-detail/<sku>/',detailproduct_view),
     path('import-product/',importproduct_view),
     path('online-orders/',onlineorders_view),
-    path('upload-product/',handle_excel_upload),
+     path('order-add/',manualorder_view),
     path('order-detail/',detailorders_view),
-    path('upload-product/',upload_product_view)
+    path('upload-product/',upload_product_view),
+    path('edit-product/<id>/',edit_product_view),
+    path('inven-dashboard/',inventorydash_view),
+    path('inven-edit/<skk>/',edit_inventorydash_view),
+    path('dispatch_inven-edit/',dispatchdashboard_view),
+
+    
+
 
 ]

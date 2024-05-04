@@ -33,7 +33,9 @@
     <style>
       .input_label {
         font-size: 12px;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: grey;
       }
     </style>
   </head>
@@ -48,58 +50,74 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>Add</strong> Product</h1>
-
-            <div class="card">
-              <form method="POST">
-                {% csrf_token %}
+            <h1 class="h3 mb-3"><strong>Add </strong>New Product</h1>
+            <form method="POST">
+              {% csrf_token %}
+              <button
+                class="btn btn-success"
+                style="float: right; margin-top: -5vh"
+              >
+                Add Product
+              </button>
+              <div class="card">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
-                      <label class="input_label">Product Details</label>
+                      <label class="input_label">Product SKU</label>
                       <input
                         placeholder="Product SKU"
                         class="form-control"
                         name="product_sku"
                         required
                       />
+
+                      <label class="input_label">Product Name</label>
                       <input
                         placeholder="Product Name"
-                        class="form-control my-2"
+                        class="form-control"
                         name="product_name"
                         required
                       />
 
                       <div class="row">
                         <div class="col-6">
-                          <select class="form-control my-2" name="brand">
-                            <option>--Select Brand--</option>
+                          <label class="input_label">Product Brand</label>
+                          <select class="form-control" name="brand" required>
+                            <option value="">--Select Brand--</option>
                             {% for brand in all_brands %}
-                            <option>{{brand}}</option>
+                            <option value="{{brand}}">{{brand}}</option>
                             {% endfor %}
                           </select>
                         </div>
                         <div class="col-6">
-                          <select class="form-control my-2" name="product_type">
-                            <option>--Select Type--</option>
+                          <label class="input_label">Product Type</label>
+                          <select
+                            class="form-control"
+                            name="product_type"
+                            required
+                          >
+                            <option value="">--Select Type--</option>
                             {% for type in all_type %}
-                            <option>{{type}}</option>
+                            <option value="{{type}}">{{type}}</option>
                             {% endfor %}
                           </select>
                         </div>
                       </div>
-
+                      <label class="input_label">OEM Number</label>
                       <input
                         placeholder="OEM Number "
-                        class="form-control my-2"
+                        class="form-control"
                         name="oem_number"
                       />
+
+                      <label class="input_label">Part Number</label>
                       <input
                         placeholder="Part Number"
-                        class="form-control my-2"
+                        class="form-control"
                         name="part_number"
                       />
 
+                      <label class="input_label">Product Description</label>
                       <textarea
                         placeholder="Product Description"
                         class="form-control"
@@ -108,7 +126,8 @@
                       ></textarea>
                     </div>
                     <div class="col-md-3">
-                      <label class="input_label">Product Prices</label>
+                      <label class="input_label">Product MRP</label>
+
                       <div class="input-group mb-3">
                         <span class="input-group-text">₹</span>
                         <input
@@ -119,7 +138,7 @@
                         />
                         <span class="input-group-text">.00</span>
                       </div>
-
+                      <label class="input_label">Product Price</label>
                       <div class="input-group mb-3">
                         <span class="input-group-text">₹</span>
                         <input
@@ -131,7 +150,7 @@
                         <span class="input-group-text">.00</span>
                       </div>
 
-                      <label class="input_label">Product Dimensions</label>
+                      <label class="input_label">Product Length</label>
                       <div class="input-group mb-3">
                         <input
                           type="text"
@@ -143,7 +162,7 @@
                           >cm</span
                         >
                       </div>
-
+                      <label class="input_label">Product Breadth</label>
                       <div class="input-group mb-3">
                         <input
                           type="text"
@@ -155,7 +174,7 @@
                           >cm</span
                         >
                       </div>
-
+                      <label class="input_label">Product Height</label>
                       <div class="input-group mb-3">
                         <input
                           type="text"
@@ -169,6 +188,7 @@
                       </div>
 
                       <label class="input_label">Product Weight</label>
+
                       <div class="input-group mb-3">
                         <input
                           type="text"
@@ -190,17 +210,17 @@
                         name="in_stock"
                       />
 
-                      <label class="input_label" style="margin-top: 18px"
-                        >Color/Material</label
-                      >
+                      <label class="input_label">Product Color</label>
                       <input
                         placeholder="Product Color"
                         class="form-control"
                         name="color"
                       />
+
+                      <label class="input_label">Product Material</label>
                       <input
                         placeholder="Product Material"
-                        class="form-control my-2"
+                        class="form-control"
                         name="material"
                       />
 
@@ -208,19 +228,40 @@
                         >PartsKlik Brand</label
                       >
 
-                      <select name="partsklik_brand" class="form-control">
-                        <option>--Select--</option>
+                      <select
+                        name="partsklik_brand"
+                        class="form-control"
+                        required
+                      >
+                        <option value="">--Select--</option>
                         <option value="German Purje">German Purje</option>
                         <option value="Turbowale">Turbowale</option>
                       </select>
-                      <button class="btn btn-primary my-5 w-100">
-                        Add Product
-                      </button>
+
+                      <div class="row my-1">
+                        <div class="col-md-6">
+                          <label class="input_label">GST</label>
+                          <input
+                            placeholder="GST %"
+                            class="form-control"
+                            name="gst_percent"
+                          />
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="input_label">HSN Code</label>
+                          <input
+                            placeholder="HSN Code"
+                            class="form-control"
+                            name="hsn_code"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </main>
       </div>

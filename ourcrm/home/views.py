@@ -58,32 +58,15 @@ def addUser(request):
         confirm_password=request.POST.get('confirm-password')
         user_check=CustomUser.objects.filter(email=user_email)
         if len(user_check) >0:
-            request.session['form_data']={
-                'name':user_name,
-                'email':user_email
-            }
             messages.error(request,'Email Already Registerd')
             return redirect('/add-user')
-        if user_role=="-Select Role-":
-            request.session['form_data']={
-                'name':user_name,
-                'email':user_email
-            }
-            messages.error(request,'Please Select User Role')
-            return redirect('/add-user')
         elif confirm_password !=user_password:
-            request.session['form_data']={
-                'name':user_name,
-                'email':user_email
-            }
             messages.error(request,'password not matched')
             return redirect('/add-user')
         if user_role == "Admin":
             user_data=CustomUser(email=user_email,first_name=user_name,user_role=user_role,visible_password=user_password,is_superuser=True,is_staff=True)
             user_data.set_password(user_password)
             user_data.save()
-            if 'form_data' in request.session:
-                del request.session['form_data']
             messages.success(request,'User Created Successfully')
             return redirect('/add-user')
         else:
@@ -91,12 +74,10 @@ def addUser(request):
             user_data=CustomUser(email=user_email,first_name=user_name,user_role=user_role,visible_password=user_password)
             user_data.set_password(user_password)
             user_data.save()
-            if 'form_data' in request.session:
-                del request.session['form_data']
             messages.success(request,'User Created Successfully')
             return redirect('/add-user')
     roles=roleList.objects.all()
-    all_users = CustomUser.objects.exclude(is_superuser=True)
+    all_users = CustomUser.objects.all()
     return render(request,'AdminPanel/adduser.html',{"roles":roles,"all_users":all_users,})
 
 
@@ -209,16 +190,9 @@ def addproduct_view(request):
         product_sku=request.POST.get('product_sku')
         product_name=request.POST.get('product_name')
         brand=request.POST.get('brand')
-        if brand=="--Select Brand--":
-            brand=productBrand.objects.get(product_brand="None")
-        else:
-            brand=productBrand.objects.get(product_brand=brand)
+        brand=productBrand.objects.get(product_brand=brand)
         product_type=request.POST.get('product_type')
-        if product_type=="--Select Type--":
-            product_type=productType.objects.get(product_type="None")
-        else:
-            product_type=productType.objects.get(product_type=product_type)
-        print(brand,'is brand and type',product_type)
+        product_type=productType.objects.get(product_type=product_type)
         oem_number=request.POST.get('oem_number')
         part_number=request.POST.get('part_number')
         length=request.POST.get('length')
@@ -237,19 +211,22 @@ def addproduct_view(request):
             in_stock=0
         color=request.POST.get('color')
         material=request.POST.get('material')
+        partsklik_brand=request.POST.get('partsklik_brand')
+        hsn_code=request.POST.get('hsn_code')
+        gst_percent=request.POST.get('gst_percent')
         sku_check=masterProduct.objects.filter(product_sku=product_sku)
         if len(sku_check) >0:
             messages.error(request,'Product Already Exist')
             return redirect('/add-product')
         try:
-            product_save=masterProduct(product_sku=product_sku,product_name=product_name,brand=brand,product_type=product_type,oem_number=oem_number,part_number=part_number,length=length,breadth=breadth,height=height,weight=weight,mrp=mrp,price=price,description=description,in_stock=in_stock,color=color,material=material)
+            product_save=masterProduct(product_sku=product_sku,product_name=product_name,brand=brand,product_type=product_type,oem_number=oem_number,part_number=part_number,length=length,breadth=breadth,height=height,weight=weight,mrp=mrp,price=price,description=description,in_stock=in_stock,color=color,material=material,partsklik_brand=partsklik_brand,hsn_code=hsn_code,gst_percent=gst_percent)
             product_save.save()
             messages.success(request,'Product Added')
             return redirect('/master-products')
         except Exception as e:
             print(e)
             messages.error(request,'Something Went Wrong')
-            return redirect('/add-product')
+            return redirect('/master-products')
     
     all_brands=productBrand.objects.all()
     all_type=productType.objects.all()
@@ -268,33 +245,195 @@ def detailproduct_view(request,sku):
 def importproduct_view(request):
     return render(request,'Products/importproduct.html')
 
+
+@csrf_exempt  # This decorator allows POST requests without CSRF token (for demo purposes only)
+def upload_product_view(request):
+    if request.method == 'POST' and request.FILES.get('excel_file'):
+        try:
+
+            excel_file = request.FILES['excel_file']
+            df = pd.read_excel(excel_file)
+            for index, row in df.iterrows():
+                product_sku = row['sku']
+                product_name = row['product_name']
+                product_type = row['product_type']
+                type_check=productType.objects.filter(product_type=product_type)
+                if len(type_check)>0:
+                    product_type=productType.objects.get(product_type=product_type)
+                else:
+                    product_type=productType.objects.get(product_type="None")
+                product_brand=row['product_type']
+                brand_check=productBrand.objects.filter(product_brand=product_brand)
+                if len(brand_check) > 0:
+                    product_brand=productBrand.objects.get(product_brand=product_brand)
+                else:
+                    product_brand=productBrand.objects.get(product_brand="None")
+                 
+                part_number=row['part_number']
+                oem_number=row['oem_number']
+                product_price=row['product_price']
+                if pd.isna(product_price):
+                    product_price=0
+                website_price=row['website_price']
+                if pd.isna(website_price):
+                    website_price=0
+                product_stock=row['product_stock']
+                if pd.isna(product_stock):
+                    product_stock=0
+                length=row['length']
+                breadth=row['breadth']
+                height=row['height']
+                weight=row['weight']
+                product_color=row['product_color']
+                product_material=row['product_material']
+                partsklik_brand=row['partsklik_brand']
+                hsn_code=row['hsn_code']
+                if pd.isna(hsn_code):
+                    hsn_code=''
+                gst_percent=row['gst_percent']
+                if pd.isnan(gst_percent):
+                    gst_percent=''
+                desc=''
+                # print('this was data',product_sku,product_name,product_type,product_brand,part_number,oem_number,product_price,website_price)
+                sku_check=masterProduct.objects.filter(product_sku=product_sku)
+                if len(sku_check) > 0:
+                    continue
+                else:
+                    product_save=masterProduct(product_sku=product_sku,product_name=product_name,brand=product_brand,product_type=product_type,oem_number=oem_number,part_number=part_number,length=length,breadth=breadth,height=height,weight=weight,mrp=product_price,price=website_price,in_stock=product_stock,color=product_color,material=product_material,partsklik_brand=partsklik_brand,hsn_code=hsn_code,gst_percent=gst_percent,description=desc)
+                    product_save.save()
+            return JsonResponse({'message': 'File uploaded successfully!'})
+        except Exception as e:
+            print(e)
+            messages.error(request,'Try Again')
+            return redirect('/import-product')
+    else:
+        return JsonResponse({'error': 'No file uploaded or invalid request method.'}, status=400)
+
+# chenging
+
+
+@login_required(login_url='/login')
+def edit_product_view(request,id):
+    if request.method=="POST":
+        sku=request.POST.get('product_sku')
+        product_to_update=masterProduct.objects.get(product_slu=sku)
+        # product_to_update.
+        messages.error(request,'Working on Functionality')
+        return redirect('/master-prodcut')
+    try:
+        product=masterProduct.objects.get(id=id)
+        all_brands=productBrand.objects.all()
+        all_type=productType.objects.all()
+        return render(request,'Products/editproduct.html',{"product":product,'all_brands':all_brands,'all_type':all_type})
+    except Exception as e:
+        messages.error(request,'Something Went Wrong')
+        return redirect('/master-products')
+
 # --------------------------------Master Products End --------------------------
+
+
+
+
+
+
 
 # --------------------------------Online Orders Start --------------------------
 @login_required(login_url='/login')
 def onlineorders_view(request):
-    return render(request,'OnlineOrders/orders.html')
-
-
-
-@csrf_exempt  # This decorator allows POST requests without CSRF token (for demo purposes only)
-def handle_excel_upload(request):
-    if request.method == 'POST' and request.FILES.get('excel_file'):
-        excel_file = request.FILES['excel_file']
-        df = pd.read_excel(excel_file)
-        for index, row in df.iterrows():
-            name = row['name']
-            email = row['email']
-            Contact.objects.create(name=name, email=email)
-        return JsonResponse({'message': 'File uploaded successfully!'})
-    else:
-        return JsonResponse({'error': 'No file uploaded or invalid request method.'}, status=400)
+    return render(request,'Orders/orders.html')
 
 
 @login_required(login_url='/login')
 def detailorders_view(request):
-    return render(request,'OnlineOrders/orderdetails.html')
+    return render(request,'Orders/orderdetails.html')
 
-def upload_product_view(request):
-    pass
+@login_required(login_url='/login')
+def manualorder_view(request):
+    return render(request,'Orders/manualorder.html')
+    
 
+
+
+
+# --------------------------------Inventory Management Start --------------------------
+@login_required(login_url='/login')
+def inventorydash_view(request):
+    products=masterProduct.objects.all()
+    all_inventroy=Inventory.objects.all()
+    send_data=[]
+    for j in products:
+        print(j)
+        inv=Inventory.objects.filter(product=j)
+        if len(inv)==1:
+            inv=Inventory.objects.get(product=j)
+            if inv.product.product_sku ==j.product_sku:
+                inv1=Inventory.objects.get(product=j)
+                send_data.append({
+                    "product_sku":j.product_sku,
+                    "product_name":j.product_name,
+                    "part_number":j.part_number,
+                    "ware_house":inv1.ware_house.ware_house,
+                    "rack_number":inv1.rack.rack_number,
+                    "quantity":inv1.quantity
+                })
+        else:
+                send_data.append({
+                "product_sku":j.product_sku,
+                "product_name":j.product_name,
+                "part_number":j.part_number,
+                "ware_house":'-',
+                "rack_number":'-',
+                "quantity":'-'
+            })
+
+    return render(request,'Inventory/inven_dashboard.html',{"send_data":send_data})
+
+
+@login_required(login_url='/login')
+def edit_inventorydash_view(request,skk):
+    if request.method=="POST":
+        try:
+
+            pr_sku=request.POST.get('pr_sku')
+            pr_sku=masterProduct.objects.get(product_sku=pr_sku)
+            house=request.POST.get('warehouse')
+            house=WareHouses.objects.get(ware_house=house)
+            rack=request.POST.get('rack')
+            rack=Racks.objects.get(rack_number=rack)
+            quantity=request.POST.get('quantity')
+            edit_check=Inventory.objects.filter(product=pr_sku)
+            if len(edit_check)>0:
+                edit_save=Inventory.objects.get(product=pr_sku)
+                edit_save.ware_house=house
+                edit_save.product=pr_sku
+                edit_save.rack=rack
+                edit_save.quantity=quantity
+                edit_save.save()
+                messages.success(request,'Inventory Updated Successfully')
+                return redirect('/inven-dashboard')
+            quantity_save=Inventory(ware_house=house,product=pr_sku,rack=rack,quantity=quantity)
+            quantity_save.save()
+            messages.success(request,'Inventory Updated Successfully')
+            return redirect('/inven-dashboard')
+        except Exception as e:
+            print(e)
+            messages.error(request,'Something Went Wrong')
+            return redirect('/inven-dashboard')
+    try:
+        product=masterProduct.objects.get(product_sku=skk)
+        quan=Inventory.objects.filter(product=product)
+        if len(quan)>0:
+            quan=quan[0]
+        warehouse=WareHouses.objects.all()
+        blocks=Racks.objects.all()
+        return render(request,'Inventory/editinventory.html',{"product":product,"warehouse":warehouse,"blocks":blocks,"quan":quan})
+    except Exception as e:
+        print(e)
+        messages.error(request,'Product Not Found')
+        return redirect('/inven-dashboard')
+
+
+@login_required(login_url='/login')
+def dispatchdashboard_view(request):
+
+    return render(request,'Inventory/DispatchArea/dispatch_inven_dashboard.html')

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Autoparts at a klik" />
+    <meta name="author" content="Partsklik" />
+    <meta name="keywords" content="partsklik german cars crm" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>PartsKlik CRM</title>
+
+    <link href="../../../static/css/app.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="semantic/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="main">
+        {% include "components/navbar.html" %}
+        <div>{% include "components/message.html" %}</div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3"><strong>Inventory</strong> Management</h1>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="row" style="margin-top: 5px">
+                  <div class="col-md-6">
+                    <h5>Order No. : <b>#15245</b></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <table class="table border" style="font-size: 13px">
+              <thead class="table-primary">
+                <tr>
+                  <td>Sl No.</td>
+                  <td>Product SKU</td>
+                  <td>Product Name</td>
+                  <td>Part Number</td>
+                  <td>Warehouse</td>
+                  <td>Rack Number</td>
+                  <td>Status</td>
+                </tr>
+              </thead>
+              <tbody style="background-color: white">
+                <tr>
+                  <td>1</td>
+                  <td>SKU</td>
+                  <td>XUV 700 Turbocharger TEL</td>
+                  <td>6562335653232</td>
+                  <td>PRTK-3</td>
+                  <td>RACK 1A</td>
+
+                  <td>
+                    <h5 class="badge bg-success" style="font-size: 14px">
+                      Success
+                    </h5>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>SKU</td>
+                  <td>XUV 700 Turbocharger E&E</td>
+                  <td>6562335232</td>
+                  <td>PRTK-3</td>
+                  <td>RACK 5A</td>
+
+                  <td>
+                    <h5 class="badge bg-danger" style="font-size: 14px">
+                      Pending
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="../../../static/js/app.js"></script>
+</html>
